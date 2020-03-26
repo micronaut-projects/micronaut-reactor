@@ -1,3 +1,4 @@
 rootProject.name = 'reactor'
 
 include 'reactor'
+include 'reactor-http-client'

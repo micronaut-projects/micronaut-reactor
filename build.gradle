@@ -26,7 +26,8 @@ version project.projectVersion
 
 subprojects { Project subproject ->
     repositories {
-        maven { url "https://repo.grails.org/grails/core" }
+        mavenCentral()
+        maven { url "https://oss.jfrog.org/oss-snapshot-local" }
     }
 
     if (subproject.name.contains('example') || subproject.name.startsWith('benchmark')) {
