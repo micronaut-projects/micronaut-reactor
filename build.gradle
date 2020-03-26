@@ -34,7 +34,7 @@ subprojects { Project subproject ->
     }
 
     version project.projectVersion
-    group "io.micronaut.xxx"
+    group "io.micronaut.reactor"
     ext {
         isBuildSnapshot = version.toString().endsWith("-SNAPSHOT")
     }

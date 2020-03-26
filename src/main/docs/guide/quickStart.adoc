@@ -1,1 +1,14 @@
-TODO
+Add the following dependency to your Micronaut application:
+
+dependency:io.micronaut.reactor:micronaut-reactor[scope="compile", version="{version}"]
+
+To use the Reactor variation of the Micronaut HTTP client inject the api:reactor.http.client.ReactorHttpClient[] interface (or one the other variants). For example:
+
+[source,java]
+----
+import io.micronaut.reactor.http.client.*;
+
+@Inject ReactorHttpClient httpClient; // regular client
+@Inject ReactorSseClient sseClient; // server sent events
+@Inject ReactorStreamingHttpClient streamingClient; // streaming
+----
