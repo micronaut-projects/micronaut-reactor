@@ -17,6 +17,7 @@ package io.micronaut.reactor.convert;
 
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.core.annotation.Internal;
+import io.micronaut.core.annotation.TypeHint;
 import io.micronaut.core.convert.ConversionService;
 import io.micronaut.core.convert.TypeConverterRegistrar;
 import io.reactivex.Flowable;
@@ -38,6 +39,7 @@ import java.util.Optional;
 @Internal
 @Requires(sdk = Requires.Sdk.MICRONAUT, version = "2.0.0")
 @Requires(classes = Flux.class)
+@TypeHint({Flux.class, Mono.class})
 class ReactorConverterRegistrar implements TypeConverterRegistrar {
     @Override
     public void register(ConversionService<?> conversionService) {
