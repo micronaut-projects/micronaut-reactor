@@ -2,5 +2,7 @@ dependencies {
     annotationProcessor "io.micronaut:micronaut-inject-java:$micronautVersion"
     annotationProcessor "io.micronaut:micronaut-graal:$micronautVersion"
     api "io.micronaut:micronaut-runtime:$micronautVersion"
+
+    compileOnly "io.micronaut:micronaut-tracing"
     api "io.projectreactor:reactor-core:3.2.10.RELEASE"
 }

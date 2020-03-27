@@ -64,9 +64,12 @@ class ReactorInstrumentation {
     void init(BeanContext beanContext, ThreadFactory threadFactory) {
         if (beanContext instanceof ApplicationContext) {
             try {
-                BeanDefinition<ExecutorService> beanDefinition = beanContext.getBeanDefinition(ExecutorService.class, Qualifiers.byName(TaskExecutors.SCHEDULED));
+                BeanDefinition<ExecutorService> beanDefinition =
+                        beanContext.getBeanDefinition(ExecutorService.class, Qualifiers.byName(TaskExecutors.SCHEDULED));
                 Collection<BeanCreatedEventListener> schedulerCreateListeners =
-                        beanContext.getBeansOfType(BeanCreatedEventListener.class, Qualifiers.byTypeArguments(ScheduledExecutorService.class));
+                        beanContext.getBeansOfType(
+                                BeanCreatedEventListener.class,
+                                Qualifiers.byTypeArguments(ScheduledExecutorService.class));
 
                 Schedulers.addExecutorServiceDecorator(Environment.MICRONAUT, (scheduler, scheduledExecutorService) -> {
                     for (BeanCreatedEventListener schedulerCreateListener : schedulerCreateListeners) {
