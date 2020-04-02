@@ -26,8 +26,7 @@ version project.projectVersion
 
 subprojects { Project subproject ->
     repositories {
-        mavenCentral()
-        maven { url "https://oss.jfrog.org/oss-snapshot-local" }
+        jcenter()
     }
 
     if (subproject.name.contains('example') || subproject.name.startsWith('benchmark')) {
