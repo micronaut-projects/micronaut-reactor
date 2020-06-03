@@ -4,5 +4,5 @@ dependencies {
     api "io.micronaut:micronaut-runtime:$micronautVersion"
 
     compileOnly "io.micronaut:micronaut-tracing"
-    api "io.projectreactor:reactor-core:3.2.10.RELEASE"
+    api "io.projectreactor:reactor-core:$reactorVersion"
 }
