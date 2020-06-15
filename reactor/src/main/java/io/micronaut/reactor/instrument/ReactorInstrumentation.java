@@ -15,30 +15,23 @@
  */
 package io.micronaut.reactor.instrument;
 
-import io.micronaut.context.ApplicationContext;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import io.micronaut.context.BeanContext;
 import io.micronaut.context.annotation.Context;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.context.env.Environment;
-import io.micronaut.context.event.BeanCreatedEvent;
-import io.micronaut.context.event.BeanCreatedEventListener;
-import io.micronaut.context.exceptions.BeanContextException;
 import io.micronaut.core.annotation.Internal;
-import io.micronaut.inject.BeanDefinition;
-import io.micronaut.inject.BeanIdentifier;
-import io.micronaut.inject.qualifiers.Qualifiers;
-import io.micronaut.scheduling.TaskExecutors;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.micronaut.core.util.CollectionUtils;
+import io.micronaut.scheduling.instrument.Instrumentation;
+import io.micronaut.scheduling.instrument.InvocationInstrumenter;
+import io.micronaut.scheduling.instrument.ReactiveInvocationInstrumenterFactory;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import java.util.Collection;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadFactory;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Instruments Reactor such that the thread factory used by Micronaut is used and instrumentations can be applied to the {@link java.util.concurrent.ScheduledExecutorService}.
@@ -51,42 +44,28 @@ import java.util.concurrent.ThreadFactory;
 @Context
 @Internal
 class ReactorInstrumentation {
-    private static final Logger LOG = LoggerFactory.getLogger(ReactorInstrumentation.class);
-
     /**
      * Initialize instrumentation for reactor with the tracer and factory.
      *
      * @param beanContext   The bean context
-     * @param threadFactory The factory to create new threads on-demand
+     * @param instrumenterFactory The instrumenter factory
      */
     @SuppressWarnings("unchecked")
     @PostConstruct
-    void init(BeanContext beanContext, ThreadFactory threadFactory) {
-        if (beanContext instanceof ApplicationContext) {
-            try {
-                BeanDefinition<ExecutorService> beanDefinition =
-                        beanContext.getBeanDefinition(ExecutorService.class, Qualifiers.byName(TaskExecutors.SCHEDULED));
-                Collection<BeanCreatedEventListener> schedulerCreateListeners =
-                        beanContext.getBeansOfType(
-                                BeanCreatedEventListener.class,
-                                Qualifiers.byTypeArguments(ScheduledExecutorService.class));
-
-                Schedulers.addExecutorServiceDecorator(Environment.MICRONAUT, (scheduler, scheduledExecutorService) -> {
-                    for (BeanCreatedEventListener schedulerCreateListener : schedulerCreateListeners) {
-                        Object newBean = schedulerCreateListener.onCreated(new BeanCreatedEvent(beanContext, beanDefinition, BeanIdentifier.of("reactor-" + scheduler.getClass().getSimpleName()), scheduledExecutorService));
-                        if (!(newBean instanceof ScheduledExecutorService)) {
-                            throw new BeanContextException("Bean creation listener [" + schedulerCreateListener + "] should return ScheduledExecutorService, but returned " + newBean);
+    void init(BeanContext beanContext, ReactorInstrumenterFactory instrumenterFactory) {
+        Schedulers.onScheduleHook("reactor-micronaut-instrumentation", runnable -> {
+            if (instrumenterFactory.hasInstrumenters()) {
+                InvocationInstrumenter instrumenter = instrumenterFactory.create();
+                if (instrumenter != null) {
+                    return () -> {
+                        try (Instrumentation ignored = instrumenter.newInstrumentation()) {
+                            runnable.run();
                         }
-                        scheduledExecutorService = (ScheduledExecutorService) newBean;
-                    }
-                    return scheduledExecutorService;
-                });
-            } catch (Exception e) {
-                if (LOG.isErrorEnabled()) {
-                    LOG.error("Could not instrument Reactor for Tracing: " + e.getMessage(), e);
+                    };
                 }
             }
-        }
+            return runnable;
+        });
     }
 
     /**
@@ -95,5 +74,59 @@ class ReactorInstrumentation {
     @PreDestroy
     void removeInstrumentation() {
         Schedulers.removeExecutorServiceDecorator(Environment.MICRONAUT);
+    }
+
+
+    @Context
+    @Requires(classes = Flux.class)
+    @Internal
+    static final class ReactorInstrumenterFactory {
+
+        private final List<ReactiveInvocationInstrumenterFactory> reactiveInvocationInstrumenterFactories;
+
+        /**
+         * @param reactiveInvocationInstrumenterFactories invocation instrumenters
+         */
+        ReactorInstrumenterFactory(List<ReactiveInvocationInstrumenterFactory> reactiveInvocationInstrumenterFactories) {
+            this.reactiveInvocationInstrumenterFactories = reactiveInvocationInstrumenterFactories;
+        }
+
+        /**
+         * Check if there are any instumenters present.
+         *
+         * @return true if there are any instumenters present
+         */
+        public boolean hasInstrumenters() {
+            return !reactiveInvocationInstrumenterFactories.isEmpty();
+        }
+
+        /**
+         * Created a new {@link InvocationInstrumenter}.
+         *
+         * @return new {@link InvocationInstrumenter} if instrumentation is required
+         */
+        public @Nullable
+        InvocationInstrumenter create() {
+            List<InvocationInstrumenter> invocationInstrumenter = getReactiveInvocationInstrumenters();
+            if (CollectionUtils.isNotEmpty(invocationInstrumenter)) {
+                return InvocationInstrumenter.combine(invocationInstrumenter);
+            }
+            return null;
+        }
+
+        /**
+         * @return The invocation instrumenters
+         */
+        private List<InvocationInstrumenter> getReactiveInvocationInstrumenters() {
+            List<InvocationInstrumenter> instrumenters = new ArrayList<>(reactiveInvocationInstrumenterFactories.size());
+            for (ReactiveInvocationInstrumenterFactory instrumenterFactory : reactiveInvocationInstrumenterFactories) {
+                final InvocationInstrumenter instrumenter = instrumenterFactory.newReactiveInvocationInstrumenter();
+                if (instrumenter != null) {
+                    instrumenters.add(instrumenter);
+                }
+            }
+            return instrumenters;
+        }
+
     }
 }
