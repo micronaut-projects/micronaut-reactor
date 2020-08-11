@@ -12,10 +12,6 @@ See the [Documentation](https://micronaut-projects.github.io/micronaut-reactor/l
 
 See the [Snapshot Documentation](https://micronaut-projects.github.io/micronaut-reactor/snapshot/guide/) for the current development docs.
 
-## Examples
-
-Examples can be found in the [examples](https://github.com/micronaut-projects/micronaut-reactor/tree/master/examples) directory.
-
 ## Snapshots and Releases
 
 Snaphots are automatically published to [JFrog OSS](https://oss.jfrog.org/artifactory/oss-snapshot-local/) using [Github Actions](https://github.com/micronaut-projects/micronaut-reactor/actions).
