@@ -5,4 +5,5 @@ dependencies {
 
     compileOnly "io.micronaut:micronaut-tracing"
     api "io.projectreactor:reactor-core:$reactorVersion"
+    api "io.projectreactor.kotlin:reactor-kotlin-extensions:1.0.2.RELEASE"
 }
