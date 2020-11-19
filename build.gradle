@@ -13,14 +13,8 @@ subprojects { Project subproject ->
     group "io.micronaut.reactor"
 
     apply plugin: "io.micronaut.build.common"
-
-    if (subproject.parent.name == "docs-examples" || subproject.name == "docs-examples") {
-        return
-    }
-
     apply plugin: "io.micronaut.build.dependency-updates"
     apply plugin: "io.micronaut.build.publishing"
-
 
     dependencies {
         testImplementation("org.spockframework:spock-core:${spockVersion}") {
