@@ -10,7 +10,6 @@ import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Produces
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.http.sse.Event
-import io.reactivex.Flowable
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import org.reactivestreams.Publisher
 import reactor.core.publisher.Flux
@@ -66,7 +65,6 @@ class ServerSentEventSpec extends Specification {
     }
 
     void "test receive error from supplier"() {
-
         when:
         List<Event<String>> events = client.exception().collectList().block()
 

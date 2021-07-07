@@ -9,10 +9,9 @@ import io.micronaut.http.annotation.Produces
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.http.context.ServerRequestContext
 import io.micronaut.scheduling.TaskExecutors
-import io.reactivex.Single
-import io.reactivex.schedulers.Schedulers
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Mono
+import reactor.core.scheduler.Schedulers
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -34,7 +33,6 @@ class ServerRequestContextSpec extends Specification {
 
         where:
         method          | uri
-        "rxjava"        | '/test-context/rxjava'
         "reactor"       | '/test-context/reactor'
     }
 
@@ -69,20 +67,12 @@ class ServerRequestContextSpec extends Specification {
         @Named(TaskExecutors.IO)
         ExecutorService executorService
 
-        @Get("/rxjava")
-        Single<String> rxjava() {
-            Single.fromCallable({ ->
-                def request = ServerRequestContext.currentRequest().orElseThrow { -> new RuntimeException("no request") }
-                request.uri
-            }).subscribeOn(Schedulers.computation())
-        }
-
         @Get("/reactor")
         Mono<String> reactor() {
             Mono.fromCallable({ ->
                 def request = ServerRequestContext.currentRequest().orElseThrow { -> new RuntimeException("no request") }
                 request.uri
-            }).subscribeOn(reactor.core.scheduler.Schedulers.elastic())
+            }).subscribeOn(Schedulers.boundedElastic())
         }
 
     }

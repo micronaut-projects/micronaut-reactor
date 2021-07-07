@@ -7,7 +7,6 @@ import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import io.micronaut.tracing.annotation.ContinueSpan
 import io.micronaut.tracing.annotation.NewSpan
 import io.micronaut.tracing.annotation.SpanTag
-import io.reactivex.Single
 import reactor.core.publisher.Mono
 import reactor.core.scheduler.Schedulers
 import spock.lang.Specification
@@ -24,8 +23,6 @@ class TraceInterceptorSpec extends Specification {
 
     @Inject TracedService tracedService
     @Inject TestReporter reporter
-
-
 
     void "test trace mono"() {
         when:
@@ -54,12 +51,7 @@ class TraceInterceptorSpec extends Specification {
 
         @ContinueSpan
         String methodTwo(@SpanTag("foo.baz") String another) {
-            methodThree(another).blockingGet()
-        }
-
-        @NewSpan("trace-rx")
-        Single<String> methodThree(@SpanTag("more.stuff") String name) {
-            return Single.just(name)
+            mono(another).block()
         }
 
         @NewSpan("trace-mono")
@@ -69,8 +61,6 @@ class TraceInterceptorSpec extends Specification {
                 return name
             }).subscribeOn(Schedulers.elastic())
         }
-
-
     }
 }
 
