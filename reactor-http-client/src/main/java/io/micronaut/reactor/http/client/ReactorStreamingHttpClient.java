@@ -30,7 +30,7 @@ import java.util.Map;
  * @author graemerocher
  * @since 1.0.0
  */
-public interface ReactorStreamingHttpClient extends StreamingHttpClient {
+public interface ReactorStreamingHttpClient extends ReactorHttpClient, StreamingHttpClient {
 
     @Override
     <I> Flux<ByteBuffer<?>> dataStream(HttpRequest<I> request);
