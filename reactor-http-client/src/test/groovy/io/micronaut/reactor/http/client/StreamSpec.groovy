@@ -1,6 +1,6 @@
 package io.micronaut.reactor.http.client
 
-
+import io.micronaut.core.annotation.Nullable
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
@@ -10,7 +10,6 @@ import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Flux
 import spock.lang.Specification
 
-import javax.annotation.Nullable
 import jakarta.inject.Inject
 import java.nio.charset.StandardCharsets
 
