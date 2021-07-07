@@ -3,7 +3,7 @@ package io.micronaut.reactor.http.client
 import brave.SpanCustomizer
 import io.micronaut.context.annotation.Property
 import io.micronaut.core.util.StringUtils
-import io.micronaut.test.annotation.MicronautTest
+import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import io.micronaut.tracing.annotation.ContinueSpan
 import io.micronaut.tracing.annotation.NewSpan
 import io.micronaut.tracing.annotation.SpanTag

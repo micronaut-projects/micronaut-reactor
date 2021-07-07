@@ -6,8 +6,8 @@ import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.QueryValue
 import io.micronaut.http.client.annotation.Client
-import io.micronaut.test.annotation.MicronautTest
 import io.reactivex.Flowable
+import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Flux
 import spock.lang.Specification
 
