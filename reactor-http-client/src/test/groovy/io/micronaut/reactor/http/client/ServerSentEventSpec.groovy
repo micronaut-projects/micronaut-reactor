@@ -17,7 +17,7 @@ import reactor.core.publisher.Flux
 import reactor.core.publisher.SynchronousSink
 import spock.lang.Specification
 
-import javax.inject.Inject
+import jakarta.inject.Inject
 import java.time.Duration
 import java.time.temporal.ChronoUnit
 
