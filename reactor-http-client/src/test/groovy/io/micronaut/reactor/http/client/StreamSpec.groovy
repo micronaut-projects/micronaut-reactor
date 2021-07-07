@@ -10,7 +10,7 @@ import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Flux
 import spock.lang.Specification
 import io.micronaut.core.annotation.Nullable;
-import javax.inject.Inject
+import jakarta.inject.Inject
 import java.nio.charset.StandardCharsets
 
 @MicronautTest
@@ -29,7 +29,6 @@ class StreamSpec extends Specification {
         then:
         sum == n
     }
-
 
     @Client('/stream')
     static interface StreamEchoClient {

@@ -8,8 +8,8 @@ import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Mono
 import spock.lang.Specification
 
-import javax.inject.Inject
-import javax.inject.Singleton
+import jakarta.inject.Inject
+import jakarta.inject.Singleton
 
 @MicronautTest
 class SimpleRetrySpec extends Specification {

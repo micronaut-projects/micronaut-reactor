@@ -24,7 +24,7 @@ import io.micronaut.http.client.exceptions.HttpClientResponseException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 
 /**
  * Adds custom support for {@link Mono} to handle NOT_FOUND results.

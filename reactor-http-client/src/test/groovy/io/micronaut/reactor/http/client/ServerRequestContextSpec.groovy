@@ -16,8 +16,8 @@ import reactor.core.publisher.Mono
 import spock.lang.Specification
 import spock.lang.Unroll
 
-import javax.inject.Inject
-import javax.inject.Named
+import jakarta.inject.Inject
+import jakarta.inject.Named
 import java.util.concurrent.ExecutorService
 
 @MicronautTest
