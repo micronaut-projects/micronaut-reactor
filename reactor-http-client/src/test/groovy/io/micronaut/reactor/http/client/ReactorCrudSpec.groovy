@@ -19,7 +19,7 @@ package io.micronaut.reactor.http.client
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.annotation.*
 import io.micronaut.http.client.annotation.Client
-import io.micronaut.test.annotation.MicronautTest
+import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Mono
 import spock.lang.Specification
 

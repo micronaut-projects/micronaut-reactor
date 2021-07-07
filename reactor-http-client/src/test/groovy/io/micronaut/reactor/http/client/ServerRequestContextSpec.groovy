@@ -9,9 +9,9 @@ import io.micronaut.http.annotation.Produces
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.http.context.ServerRequestContext
 import io.micronaut.scheduling.TaskExecutors
-import io.micronaut.test.annotation.MicronautTest
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Mono
 import spock.lang.Specification
 import spock.lang.Unroll
