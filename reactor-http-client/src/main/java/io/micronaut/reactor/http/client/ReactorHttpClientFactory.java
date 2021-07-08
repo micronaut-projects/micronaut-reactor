@@ -23,7 +23,7 @@ import io.micronaut.context.annotation.Secondary;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.http.client.HttpClientConfiguration;
 import io.micronaut.http.client.LoadBalancer;
-import io.micronaut.http.client.ReactiveHttpClientRegistry;
+import io.micronaut.http.client.StreamingHttpClientRegistry;
 import io.micronaut.inject.InjectionPoint;
 
 /**
@@ -35,13 +35,13 @@ import io.micronaut.inject.InjectionPoint;
 @Factory
 public class ReactorHttpClientFactory {
 
-    private final ReactiveHttpClientRegistry<?, ?, ?, ?, ?> clientRegistry;
+    private final StreamingHttpClientRegistry<?> clientRegistry;
 
     /**
      * Default constructor.
      * @param clientRegistry The client registry
      */
-    public ReactorHttpClientFactory(ReactiveHttpClientRegistry<?, ?, ?, ?, ?> clientRegistry) {
+    public ReactorHttpClientFactory(StreamingHttpClientRegistry<?> clientRegistry) {
         this.clientRegistry = clientRegistry;
     }
 
@@ -61,6 +61,6 @@ public class ReactorHttpClientFactory {
                                                         @Parameter @Nullable LoadBalancer loadBalancer,
                                                         @Parameter @Nullable HttpClientConfiguration configuration,
                                                         BeanContext beanContext) {
-        return new BridgedReactorHttpClient(clientRegistry.resolveStreamingClient(injectionPoint, loadBalancer, configuration, beanContext));
+        return new BridgedReactorHttpClient(clientRegistry.resolveStreamingHttpClient(injectionPoint, loadBalancer, configuration, beanContext));
     }
 }
