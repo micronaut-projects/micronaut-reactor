@@ -4,11 +4,13 @@ import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import io.micronaut.context.annotation.Property
 import io.micronaut.context.annotation.Requires
+import io.micronaut.http.HttpStatus
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Produces
 import io.micronaut.http.client.annotation.Client
+import io.micronaut.http.client.exceptions.HttpClientResponseException
 import io.micronaut.http.sse.Event
 import io.reactivex.Flowable
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
@@ -66,12 +68,13 @@ class ServerSentEventSpec extends Specification {
     }
 
     void "test receive error from supplier"() {
-
         when:
         List<Event<String>> events = client.exception().collectList().block()
 
         then:
-        events.size() == 0
+        HttpClientResponseException ex = thrown()
+        ex.status == HttpStatus.INTERNAL_SERVER_ERROR
+        ex.message == "Internal Server Error"
     }
 
     @Client('/sse')
