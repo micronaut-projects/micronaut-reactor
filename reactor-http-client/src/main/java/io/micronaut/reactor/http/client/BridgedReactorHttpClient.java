@@ -44,8 +44,7 @@ class BridgedReactorHttpClient implements ReactorStreamingHttpClient {
     BridgedReactorHttpClient(StreamingHttpClient streamingHttpClient) {
         this.streamingHttpClient = streamingHttpClient;
     }
-
-
+    
     @Override
     public BlockingHttpClient toBlocking() {
         return null;
