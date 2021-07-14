@@ -28,7 +28,7 @@ import reactor.core.publisher.Flux;
  * Reactor bridge for the Server Sent events HTTP client.
  *
  * @author Sergio del Amo
- * @since 3.0.0
+ * @since 2.0.0
  */
 @Internal
 class BridgedReactorSseClient implements ReactorSseClient, AutoCloseable  {
