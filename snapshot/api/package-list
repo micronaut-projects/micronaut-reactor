@@ -1,1 +1,3 @@
+io.micronaut.reactor.convert
 io.micronaut.reactor.http.client
+io.micronaut.reactor.http.client.sse

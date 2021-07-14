@@ -30,7 +30,8 @@
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="io/micronaut/reactor/http/client/package-summary.html">Package</a></li>
+<li><a href="overview-summary.html">Overview</a></li>
+<li>Package</li>
 <li>Class</li>
 <li><a href="overview-tree.html">Tree</a></li>
 <li><a href="deprecated-list.html">Deprecated</a></li>
@@ -66,7 +67,7 @@
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-<div class="contentContainer"><a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:J">J</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a name="I:D">
+<div class="contentContainer"><a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:J">J</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a name="I:D">
 <!--   -->
 </a>
 <h2 class="title">D</h2>
@@ -104,23 +105,19 @@
 <dt><span class="memberNameLink"><a href="io/micronaut/reactor/http/client/ReactorStreamingHttpClient.html#exchangeStream-io.micronaut.http.HttpRequest-">exchangeStream(HttpRequest&lt;I&gt;)</a></span> - Method in interface io.micronaut.reactor.http.client.<a href="io/micronaut/reactor/http/client/ReactorStreamingHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorStreamingHttpClient</a></dt>
 <dd>&nbsp;</dd>
 </dl>
-<a name="I:H">
-<!--   -->
-</a>
-<h2 class="title">H</h2>
-<dl>
-<dt><span class="memberNameLink"><a href="io/micronaut/reactor/http/client/ReactorHttpClientFactory.html#httpClient-io.micronaut.inject.InjectionPoint-">httpClient(InjectionPoint&lt;?&gt;)</a></span> - Method in class io.micronaut.reactor.http.client.<a href="io/micronaut/reactor/http/client/ReactorHttpClientFactory.html" title="class in io.micronaut.reactor.http.client">ReactorHttpClientFactory</a></dt>
-<dd>
-<div class="block">Injects an RxJava 3 client at the given injection point.</div>
-</dd>
-</dl>
 <a name="I:I">
 <!--   -->
 </a>
 <h2 class="title">I</h2>
 <dl>
+<dt><a href="io/micronaut/reactor/convert/package-summary.html">io.micronaut.reactor.convert</a> - package io.micronaut.reactor.convert</dt>
+<dd>&nbsp;</dd>
 <dt><a href="io/micronaut/reactor/http/client/package-summary.html">io.micronaut.reactor.http.client</a> - package io.micronaut.reactor.http.client</dt>
 <dd>&nbsp;</dd>
+<dt><a href="io/micronaut/reactor/http/client/sse/package-summary.html">io.micronaut.reactor.http.client.sse</a> - package io.micronaut.reactor.http.client.sse</dt>
+<dd>
+<div class="block">Reactor SSE HTTP Client related classes.</div>
+</dd>
 </dl>
 <a name="I:J">
 <!--   -->
@@ -147,7 +144,7 @@
 <dd>
 <div class="block">Factory class for creating RxJava 3 clients.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="io/micronaut/reactor/http/client/ReactorHttpClientFactory.html#ReactorHttpClientFactory-io.micronaut.http.client.RxHttpClientRegistry-">ReactorHttpClientFactory(RxHttpClientRegistry)</a></span> - Constructor for class io.micronaut.reactor.http.client.<a href="io/micronaut/reactor/http/client/ReactorHttpClientFactory.html" title="class in io.micronaut.reactor.http.client">ReactorHttpClientFactory</a></dt>
+<dt><span class="memberNameLink"><a href="io/micronaut/reactor/http/client/ReactorHttpClientFactory.html#ReactorHttpClientFactory-io.micronaut.http.client.StreamingHttpClientRegistry-">ReactorHttpClientFactory(StreamingHttpClientRegistry&lt;?&gt;)</a></span> - Constructor for class io.micronaut.reactor.http.client.<a href="io/micronaut/reactor/http/client/ReactorHttpClientFactory.html" title="class in io.micronaut.reactor.http.client">ReactorHttpClientFactory</a></dt>
 <dd>
 <div class="block">Default constructor.</div>
 </dd>
@@ -161,10 +158,34 @@
 <dd>
 <div class="block">Reactor variation of the <code>SseClient</code> interface.</div>
 </dd>
+<dt><a href="io/micronaut/reactor/http/client/sse/ReactorSseClientFactory.html" title="class in io.micronaut.reactor.http.client.sse"><span class="typeNameLink">ReactorSseClientFactory</span></a> - Class in <a href="io/micronaut/reactor/http/client/sse/package-summary.html">io.micronaut.reactor.http.client.sse</a></dt>
+<dd>
+<div class="block">Factory interface for creating <code>SseClient</code>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="io/micronaut/reactor/http/client/sse/ReactorSseClientFactory.html#ReactorSseClientFactory-io.micronaut.http.client.sse.SseClientRegistry-">ReactorSseClientFactory(SseClientRegistry&lt;?&gt;)</a></span> - Constructor for class io.micronaut.reactor.http.client.sse.<a href="io/micronaut/reactor/http/client/sse/ReactorSseClientFactory.html" title="class in io.micronaut.reactor.http.client.sse">ReactorSseClientFactory</a></dt>
+<dd>
+<div class="block">Default constructor.</div>
+</dd>
 <dt><a href="io/micronaut/reactor/http/client/ReactorStreamingHttpClient.html" title="interface in io.micronaut.reactor.http.client"><span class="typeNameLink">ReactorStreamingHttpClient</span></a> - Interface in <a href="io/micronaut/reactor/http/client/package-summary.html">io.micronaut.reactor.http.client</a></dt>
 <dd>
 <div class="block">Reactor variation of the <code>StreamingHttpClient</code> interface.</div>
 </dd>
+<dt><a href="io/micronaut/reactor/convert/ReactorToRxJava2ConverterRegistrar.html" title="class in io.micronaut.reactor.convert"><span class="typeNameLink">ReactorToRxJava2ConverterRegistrar</span></a> - Class in <a href="io/micronaut/reactor/convert/package-summary.html">io.micronaut.reactor.convert</a></dt>
+<dd>
+<div class="block">Registers converters from Reactor Types to  Rx Java 2 types.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="io/micronaut/reactor/convert/ReactorToRxJava2ConverterRegistrar.html#ReactorToRxJava2ConverterRegistrar--">ReactorToRxJava2ConverterRegistrar()</a></span> - Constructor for class io.micronaut.reactor.convert.<a href="io/micronaut/reactor/convert/ReactorToRxJava2ConverterRegistrar.html" title="class in io.micronaut.reactor.convert">ReactorToRxJava2ConverterRegistrar</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="io/micronaut/reactor/convert/ReactorToRxJava3ConverterRegistrar.html" title="class in io.micronaut.reactor.convert"><span class="typeNameLink">ReactorToRxJava3ConverterRegistrar</span></a> - Class in <a href="io/micronaut/reactor/convert/package-summary.html">io.micronaut.reactor.convert</a></dt>
+<dd>
+<div class="block">Registers converters from Reactor Types to Rx Java 3 types.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="io/micronaut/reactor/convert/ReactorToRxJava3ConverterRegistrar.html#ReactorToRxJava3ConverterRegistrar--">ReactorToRxJava3ConverterRegistrar()</a></span> - Constructor for class io.micronaut.reactor.convert.<a href="io/micronaut/reactor/convert/ReactorToRxJava3ConverterRegistrar.html" title="class in io.micronaut.reactor.convert">ReactorToRxJava3ConverterRegistrar</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="io/micronaut/reactor/convert/ReactorToRxJava2ConverterRegistrar.html#register-io.micronaut.core.convert.ConversionService-">register(ConversionService&lt;?&gt;)</a></span> - Method in class io.micronaut.reactor.convert.<a href="io/micronaut/reactor/convert/ReactorToRxJava2ConverterRegistrar.html" title="class in io.micronaut.reactor.convert">ReactorToRxJava2ConverterRegistrar</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="io/micronaut/reactor/convert/ReactorToRxJava3ConverterRegistrar.html#register-io.micronaut.core.convert.ConversionService-">register(ConversionService&lt;?&gt;)</a></span> - Method in class io.micronaut.reactor.convert.<a href="io/micronaut/reactor/convert/ReactorToRxJava3ConverterRegistrar.html" title="class in io.micronaut.reactor.convert">ReactorToRxJava3ConverterRegistrar</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="io/micronaut/reactor/http/client/ReactorHttpClient.html#retrieve-io.micronaut.http.HttpRequest-io.micronaut.core.type.Argument-io.micronaut.core.type.Argument-">retrieve(HttpRequest&lt;I&gt;, Argument&lt;O&gt;, Argument&lt;E&gt;)</a></span> - Method in interface io.micronaut.reactor.http.client.<a href="io/micronaut/reactor/http/client/ReactorHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorHttpClient</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="io/micronaut/reactor/http/client/ReactorHttpClient.html#retrieve-io.micronaut.http.HttpRequest-io.micronaut.core.type.Argument-">retrieve(HttpRequest&lt;I&gt;, Argument&lt;O&gt;)</a></span> - Method in interface io.micronaut.reactor.http.client.<a href="io/micronaut/reactor/http/client/ReactorHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorHttpClient</a></dt>
@@ -176,6 +197,20 @@
 <dt><span class="memberNameLink"><a href="io/micronaut/reactor/http/client/ReactorHttpClient.html#retrieve-java.lang.String-">retrieve(String)</a></span> - Method in interface io.micronaut.reactor.http.client.<a href="io/micronaut/reactor/http/client/ReactorHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorHttpClient</a></dt>
 <dd>&nbsp;</dd>
 </dl>
+<a name="I:S">
+<!--   -->
+</a>
+<h2 class="title">S</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="io/micronaut/reactor/http/client/sse/ReactorSseClientFactory.html#sseClient-io.micronaut.inject.InjectionPoint-io.micronaut.http.client.LoadBalancer-io.micronaut.http.client.HttpClientConfiguration-io.micronaut.context.BeanContext-">sseClient(InjectionPoint&lt;?&gt;, LoadBalancer, HttpClientConfiguration, BeanContext)</a></span> - Method in class io.micronaut.reactor.http.client.sse.<a href="io/micronaut/reactor/http/client/sse/ReactorSseClientFactory.html" title="class in io.micronaut.reactor.http.client.sse">ReactorSseClientFactory</a></dt>
+<dd>
+<div class="block">Injects a <a href="io/micronaut/reactor/http/client/ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorSseClient</code></a> client at the given injection point.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="io/micronaut/reactor/http/client/ReactorHttpClientFactory.html#streamingHttpClient-io.micronaut.inject.InjectionPoint-io.micronaut.http.client.LoadBalancer-io.micronaut.http.client.HttpClientConfiguration-io.micronaut.context.BeanContext-">streamingHttpClient(InjectionPoint&lt;?&gt;, LoadBalancer, HttpClientConfiguration, BeanContext)</a></span> - Method in class io.micronaut.reactor.http.client.<a href="io/micronaut/reactor/http/client/ReactorHttpClientFactory.html" title="class in io.micronaut.reactor.http.client">ReactorHttpClientFactory</a></dt>
+<dd>
+<div class="block">Injects a <a href="io/micronaut/reactor/http/client/ReactorStreamingHttpClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorStreamingHttpClient</code></a> client at the given injection point.</div>
+</dd>
+</dl>
 <a name="I:T">
 <!--   -->
 </a>
@@ -184,7 +219,7 @@
 <dt><span class="memberNameLink"><a href="io/micronaut/reactor/http/client/ReactorReactiveClientResultTransformer.html#transform-java.lang.Object-">transform(Object)</a></span> - Method in class io.micronaut.reactor.http.client.<a href="io/micronaut/reactor/http/client/ReactorReactiveClientResultTransformer.html" title="class in io.micronaut.reactor.http.client">ReactorReactiveClientResultTransformer</a></dt>
 <dd>&nbsp;</dd>
 </dl>
-<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:J">J</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:T">T</a>&nbsp;</div>
+<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:J">J</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;</div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav"><a name="navbar.bottom">
 <!--   -->
@@ -194,7 +229,8 @@
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="io/micronaut/reactor/http/client/package-summary.html">Package</a></li>
+<li><a href="overview-summary.html">Overview</a></li>
+<li>Package</li>
 <li>Class</li>
 <li><a href="overview-tree.html">Tree</a></li>
 <li><a href="deprecated-list.html">Deprecated</a></li>

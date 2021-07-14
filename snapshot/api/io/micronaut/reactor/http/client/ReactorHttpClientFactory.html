@@ -36,7 +36,8 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="../../../../../io/micronaut/reactor/http/client/package-summary.html">Package</a></li>
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
@@ -134,7 +135,7 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/micronaut/reactor/http/client/ReactorHttpClientFactory.html#ReactorHttpClientFactory-io.micronaut.http.client.RxHttpClientRegistry-">ReactorHttpClientFactory</a></span>(io.micronaut.http.client.RxHttpClientRegistry&nbsp;clientRegistry)</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/micronaut/reactor/http/client/ReactorHttpClientFactory.html#ReactorHttpClientFactory-io.micronaut.http.client.StreamingHttpClientRegistry-">ReactorHttpClientFactory</a></span>(io.micronaut.http.client.StreamingHttpClientRegistry&lt;?&gt;&nbsp;clientRegistry)</code>
 <div class="block">Default constructor.</div>
 </td>
 </tr>
@@ -154,9 +155,12 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected io.micronaut.reactor.http.client.BridgedReactorHttpClient</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/micronaut/reactor/http/client/ReactorHttpClientFactory.html#httpClient-io.micronaut.inject.InjectionPoint-">httpClient</a></span>(io.micronaut.inject.InjectionPoint&lt;?&gt;&nbsp;injectionPoint)</code>
-<div class="block">Injects an RxJava 3 client at the given injection point.</div>
+<td class="colFirst"><code>protected <a href="../../../../../io/micronaut/reactor/http/client/ReactorStreamingHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorStreamingHttpClient</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/micronaut/reactor/http/client/ReactorHttpClientFactory.html#streamingHttpClient-io.micronaut.inject.InjectionPoint-io.micronaut.http.client.LoadBalancer-io.micronaut.http.client.HttpClientConfiguration-io.micronaut.context.BeanContext-">streamingHttpClient</a></span>(io.micronaut.inject.InjectionPoint&lt;?&gt;&nbsp;injectionPoint,
+                   io.micronaut.http.client.LoadBalancer&nbsp;loadBalancer,
+                   io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration,
+                   io.micronaut.context.BeanContext&nbsp;beanContext)</code>
+<div class="block">Injects a <a href="../../../../../io/micronaut/reactor/http/client/ReactorStreamingHttpClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorStreamingHttpClient</code></a> client at the given injection point.</div>
 </td>
 </tr>
 </table>
@@ -181,13 +185,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ReactorHttpClientFactory-io.micronaut.http.client.RxHttpClientRegistry-">
+<a name="ReactorHttpClientFactory-io.micronaut.http.client.StreamingHttpClientRegistry-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ReactorHttpClientFactory</h4>
-<pre>public&nbsp;ReactorHttpClientFactory(io.micronaut.http.client.RxHttpClientRegistry&nbsp;clientRegistry)</pre>
+<pre>public&nbsp;ReactorHttpClientFactory(io.micronaut.http.client.StreamingHttpClientRegistry&lt;?&gt;&nbsp;clientRegistry)</pre>
 <div class="block">Default constructor.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -203,22 +207,31 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="httpClient-io.micronaut.inject.InjectionPoint-">
+<a name="streamingHttpClient-io.micronaut.inject.InjectionPoint-io.micronaut.http.client.LoadBalancer-io.micronaut.http.client.HttpClientConfiguration-io.micronaut.context.BeanContext-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>httpClient</h4>
+<h4>streamingHttpClient</h4>
 <pre>@Bean
  @Secondary
-protected&nbsp;io.micronaut.reactor.http.client.BridgedReactorHttpClient&nbsp;httpClient(@Nullable
-                                                                                                 io.micronaut.inject.InjectionPoint&lt;?&gt;&nbsp;injectionPoint)</pre>
-<div class="block">Injects an RxJava 3 client at the given injection point.</div>
+protected&nbsp;<a href="../../../../../io/micronaut/reactor/http/client/ReactorStreamingHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorStreamingHttpClient</a>&nbsp;streamingHttpClient(@Nullable
+                                                                           io.micronaut.inject.InjectionPoint&lt;?&gt;&nbsp;injectionPoint,
+                                                                           @Parameter @Nullable
+                                                                           io.micronaut.http.client.LoadBalancer&nbsp;loadBalancer,
+                                                                           @Parameter @Nullable
+                                                                           io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration,
+                                                                           @NonNull
+                                                                           io.micronaut.context.BeanContext&nbsp;beanContext)</pre>
+<div class="block">Injects a <a href="../../../../../io/micronaut/reactor/http/client/ReactorStreamingHttpClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorStreamingHttpClient</code></a> client at the given injection point.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>injectionPoint</code> - The injection point</dd>
+<dd><code>loadBalancer</code> - The load balancer to use (Optional)</dd>
+<dd><code>configuration</code> - The configuration (Optional)</dd>
+<dd><code>beanContext</code> - The bean context to use</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The client</dd>
+<dd>The Streaming HTTP Client</dd>
 </dl>
 </li>
 </ul>
@@ -238,7 +251,8 @@ protected&nbsp;io.micronaut.reactor.http.client.BridgedReactorHttpClient&nbsp;ht
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="../../../../../io/micronaut/reactor/http/client/package-summary.html">Package</a></li>
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
