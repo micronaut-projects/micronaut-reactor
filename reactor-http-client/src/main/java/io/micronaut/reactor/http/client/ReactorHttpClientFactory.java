@@ -20,6 +20,7 @@ import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Factory;
 import io.micronaut.context.annotation.Parameter;
 import io.micronaut.context.annotation.Secondary;
+import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.http.client.HttpClientConfiguration;
 import io.micronaut.http.client.LoadBalancer;
@@ -60,7 +61,7 @@ public class ReactorHttpClientFactory {
     protected ReactorStreamingHttpClient streamingHttpClient(@Nullable InjectionPoint<?> injectionPoint,
                                                         @Parameter @Nullable LoadBalancer loadBalancer,
                                                         @Parameter @Nullable HttpClientConfiguration configuration,
-                                                        BeanContext beanContext) {
+                                                        @NonNull BeanContext beanContext) {
         return new BridgedReactorHttpClient(clientRegistry.resolveStreamingHttpClient(injectionPoint, loadBalancer, configuration, beanContext));
     }
 }
