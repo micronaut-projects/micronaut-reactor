@@ -1,6 +1,7 @@
 package io.micronaut.reactor.http.client
 
 import io.micronaut.context.annotation.Property
+import io.micronaut.http.HttpRequest
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Consumes
 import io.micronaut.http.annotation.Controller
@@ -13,10 +14,10 @@ import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Mono
 import reactor.core.scheduler.Schedulers
 import spock.lang.Specification
-import spock.lang.Unroll
-
 import jakarta.inject.Inject
 import jakarta.inject.Named
+
+import java.util.concurrent.Callable
 import java.util.concurrent.ExecutorService
 
 @MicronautTest
@@ -26,37 +27,17 @@ class ServerRequestContextSpec extends Specification {
 
     @Inject TestClient testClient
 
-    @Unroll
     void "test server request context is available for #method"() {
         expect:
-        testClient."$method"() == uri
-
-        where:
-        method          | uri
-        "reactor"       | '/test-context/reactor'
+        testClient.reactor() == '/test-context/reactor'
     }
 
     @Client('/test-context')
     @Consumes(MediaType.TEXT_PLAIN)
     static interface TestClient {
 
-        @Get("/method")
-        String method()
-
-        @Get("/rxjava")
-        String rxjava()
-
         @Get("/reactor")
         String reactor()
-
-        @Get("/thread")
-        String thread()
-
-        @Get("/error")
-        String error()
-
-        @Get("/handler-error")
-        String handlerError()
     }
 
     @Controller('/test-context')
@@ -69,11 +50,13 @@ class ServerRequestContextSpec extends Specification {
 
         @Get("/reactor")
         Mono<String> reactor() {
-            Mono.fromCallable({ ->
-                def request = ServerRequestContext.currentRequest().orElseThrow { -> new RuntimeException("no request") }
-                request.uri
+            Mono.fromCallable(new Callable<String>() {
+                @Override
+                String call() throws Exception {
+                    HttpRequest<?> request = ServerRequestContext.currentRequest().orElseThrow { -> new RuntimeException("no request") }
+                    request.uri
+                }
             }).subscribeOn(Schedulers.boundedElastic())
         }
-
     }
 }
