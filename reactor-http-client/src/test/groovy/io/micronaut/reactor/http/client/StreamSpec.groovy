@@ -1,15 +1,15 @@
 package io.micronaut.reactor.http.client
 
+import io.micronaut.core.annotation.Nullable
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.QueryValue
 import io.micronaut.http.client.annotation.Client
-import io.reactivex.Flowable
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Flux
 import spock.lang.Specification
-import io.micronaut.core.annotation.Nullable;
+
 import jakarta.inject.Inject
 import java.nio.charset.StandardCharsets
 
@@ -30,6 +30,7 @@ class StreamSpec extends Specification {
         sum == n
     }
 
+
     @Client('/stream')
     static interface StreamEchoClient {
         @Get(value = "/echo{?n,data}", consumes = MediaType.TEXT_PLAIN)
@@ -40,8 +41,8 @@ class StreamSpec extends Specification {
     static class StreamEchoController {
 
         @Get(value = "/echo{?n,data}", produces = MediaType.TEXT_PLAIN)
-        Flowable<byte[]> stream(@QueryValue @Nullable int n, @QueryValue @Nullable String data) {
-            return Flowable.just(data.getBytes(StandardCharsets.UTF_8)).repeat(n)
+        Flux<byte[]> stream(@QueryValue @Nullable int n, @QueryValue @Nullable String data) {
+            return Flux.just(data.getBytes(StandardCharsets.UTF_8)).repeat(n - 1)
         }
 
     }

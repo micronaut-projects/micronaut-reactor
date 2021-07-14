@@ -12,7 +12,6 @@ import io.micronaut.http.annotation.Produces
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.http.client.exceptions.HttpClientResponseException
 import io.micronaut.http.sse.Event
-import io.reactivex.Flowable
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import org.reactivestreams.Publisher
 import reactor.core.publisher.Flux
