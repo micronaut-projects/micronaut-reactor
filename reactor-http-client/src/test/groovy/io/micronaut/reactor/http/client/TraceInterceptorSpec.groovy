@@ -2,6 +2,7 @@ package io.micronaut.reactor.http.client
 
 import brave.SpanCustomizer
 import io.micronaut.context.annotation.Property
+import io.micronaut.context.annotation.Requires
 import io.micronaut.core.util.StringUtils
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import io.micronaut.tracing.annotation.ContinueSpan
@@ -11,7 +12,8 @@ import reactor.core.publisher.Mono
 import reactor.core.scheduler.Schedulers
 import spock.lang.Specification
 import spock.util.concurrent.PollingConditions
-
+import zipkin2.Span
+import zipkin2.reporter.Reporter
 import jakarta.inject.Inject
 import jakarta.inject.Singleton
 
@@ -19,6 +21,7 @@ import jakarta.inject.Singleton
 @Property(name = 'tracing.zipkin.enabled', value = StringUtils.TRUE)
 @Property(name = 'tracing.zipkin.sampler.probability', value = "1")
 @Property(name = 'tracing.instrument-threads', value = StringUtils.TRUE)
+@Property(name = 'spec.name', value = 'TraceInterceptorSpec')
 class TraceInterceptorSpec extends Specification {
 
     @Inject TracedService tracedService
@@ -40,19 +43,11 @@ class TraceInterceptorSpec extends Specification {
         }
     }
 
+    @Requires(property = 'spec.name', value = 'TraceInterceptorSpec')
     @Singleton
     static class TracedService {
 
         @Inject SpanCustomizer spanCustomizer
-        @NewSpan("my-trace")
-        String methodOne(@SpanTag("foo.bar") String name) {
-            methodTwo(name)
-        }
-
-        @ContinueSpan
-        String methodTwo(@SpanTag("foo.baz") String another) {
-            mono(another).block()
-        }
 
         @NewSpan("trace-mono")
         Mono<String> mono(@SpanTag("more.stuff") String name) {
@@ -62,20 +57,14 @@ class TraceInterceptorSpec extends Specification {
             }).subscribeOn(Schedulers.elastic())
         }
     }
-}
 
-import zipkin2.Span
-import zipkin2.reporter.Reporter
-
-/**
- * @author graemerocher
- * @since 1.0
- */
-@Singleton
-class TestReporter implements Reporter<Span> {
-    List<Span> spans = []
-    @Override
-    void report(Span span) {
-        spans.add(span)
+    @Requires(property = 'spec.name', value = 'TraceInterceptorSpec')
+    @Singleton
+    static class TestReporter implements Reporter<Span> {
+        List<Span> spans = []
+        @Override
+        void report(Span span) {
+            spans.add(span)
+        }
     }
 }
