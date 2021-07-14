@@ -5,7 +5,6 @@ import io.micronaut.context.annotation.Property
 import io.micronaut.context.annotation.Requires
 import io.micronaut.core.util.StringUtils
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
-import io.micronaut.tracing.annotation.ContinueSpan
 import io.micronaut.tracing.annotation.NewSpan
 import io.micronaut.tracing.annotation.SpanTag
 import reactor.core.publisher.Mono
@@ -21,7 +20,7 @@ import jakarta.inject.Singleton
 @Property(name = 'tracing.zipkin.enabled', value = StringUtils.TRUE)
 @Property(name = 'tracing.zipkin.sampler.probability', value = "1")
 @Property(name = 'tracing.instrument-threads', value = StringUtils.TRUE)
-@Property(name = 'spec.name', value = 'TraceInterceptorSpec')
+@Property(name = 'spec.name', value = "TraceInterceptorSpec")
 class TraceInterceptorSpec extends Specification {
 
     @Inject TracedService tracedService
@@ -43,7 +42,7 @@ class TraceInterceptorSpec extends Specification {
         }
     }
 
-    @Requires(property = 'spec.name', value = 'TraceInterceptorSpec')
+    @Requires(property = 'spec.name', value = "TraceInterceptorSpec")
     @Singleton
     static class TracedService {
 
@@ -58,7 +57,7 @@ class TraceInterceptorSpec extends Specification {
         }
     }
 
-    @Requires(property = 'spec.name', value = 'TraceInterceptorSpec')
+    @Requires(property = 'spec.name', value = "TraceInterceptorSpec")
     @Singleton
     static class TestReporter implements Reporter<Span> {
         List<Span> spans = []
