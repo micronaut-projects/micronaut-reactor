@@ -2,6 +2,10 @@ Add the following dependency to your Micronaut application:
 
 dependency:io.micronaut.reactor:micronaut-reactor[scope="compile", version="{version}"]
 
+To use the HTTP client add the following dependency:
+
+dependency:io.micronaut.reactor:micronaut-reactor-http-client[scope="compile", version="{version}"]
+
 To use the Reactor variation of the Micronaut HTTP client inject the api:reactor.http.client.ReactorHttpClient[] interface (or one the other variants). For example:
 
 [source,java]
