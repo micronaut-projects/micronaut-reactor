@@ -15,12 +15,18 @@
  */
 package io.micronaut.reactor.http.client;
 
+import io.micronaut.core.annotation.NonNull;
+import io.micronaut.core.annotation.Nullable;
 import io.micronaut.core.io.buffer.ByteBuffer;
 import io.micronaut.core.type.Argument;
 import io.micronaut.http.HttpRequest;
+import io.micronaut.http.client.HttpClientConfiguration;
 import io.micronaut.http.client.sse.SseClient;
 import io.micronaut.http.sse.Event;
+import io.micronaut.reactor.http.client.sse.BridgedReactorSseClient;
 import reactor.core.publisher.Flux;
+
+import java.net.URL;
 
 /**
  * Reactor variation of the {@link SseClient} interface.
@@ -29,18 +35,47 @@ import reactor.core.publisher.Flux;
  * @since 1.0.0
  */
 public interface ReactorSseClient extends SseClient {
-    @Override
-    <I> Flux<Event<ByteBuffer<?>>> eventStream(HttpRequest<I> request);
 
     @Override
-    <I, B> Flux<Event<B>> eventStream(HttpRequest<I> request, Argument<B> eventType);
+    <I> Flux<Event<ByteBuffer<?>>> eventStream(@NonNull HttpRequest<I> request);
 
     @Override
-    <I, B> Flux<Event<B>> eventStream(HttpRequest<I> request, Class<B> eventType);
+    <I, B> Flux<Event<B>> eventStream(@NonNull HttpRequest<I> request, @NonNull Argument<B> eventType);
 
     @Override
-    <B> Flux<Event<B>> eventStream(String uri, Class<B> eventType);
+    <I, B> Flux<Event<B>> eventStream(@NonNull HttpRequest<I> request, @NonNull Class<B> eventType);
 
     @Override
-    <B> Flux<Event<B>> eventStream(String uri, Argument<B> eventType);
+    <B> Flux<Event<B>> eventStream(@NonNull String uri, @NonNull Class<B> eventType);
+
+    @Override
+    <B> Flux<Event<B>> eventStream(@NonNull String uri, @NonNull Argument<B> eventType);
+
+    /**
+     * Create a new {@link ReactorSseClient}.
+     * Note that this method should only be used outside of the context of a Micronaut application.
+     * The returned {@link ReactorSseClient} is not subject to dependency injection.
+     * The creator is responsible for closing the client to avoid leaking connections.
+     * Within a Micronaut application use {@link jakarta.inject.Inject} to inject a client instead.
+     *
+     * @param url The base URL
+     * @return The client
+     * @since 2.1.0
+     */
+    static ReactorSseClient create(@Nullable URL url) {
+        return new BridgedReactorSseClient(SseClient.create(url));
+    }
+
+    /**
+     * Create a new {@link ReactorSseClient} with the specified configuration. Note that this method should only be used
+     * outside of the context of an application. Within Micronaut use {@link jakarta.inject.Inject} to inject a client instead
+     *
+     * @param url The base URL
+     * @param configuration the client configuration
+     * @return The client
+     * @since 2.1.0
+     */
+    static ReactorSseClient create(@Nullable URL url, @NonNull HttpClientConfiguration configuration) {
+        return new BridgedReactorSseClient(SseClient.create(url, configuration));
+    }
 }

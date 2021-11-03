@@ -16,11 +16,13 @@
 package io.micronaut.reactor.http.client;
 
 import io.micronaut.core.annotation.Internal;
+import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.io.buffer.ByteBuffer;
 import io.micronaut.core.type.Argument;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.client.BlockingHttpClient;
+import io.micronaut.http.client.HttpClient;
 import io.micronaut.http.client.StreamingHttpClient;
 import reactor.core.publisher.Flux;
 
@@ -33,106 +35,82 @@ import java.util.Map;
  * @since 1.0
  */
 @Internal
-class BridgedReactorHttpClient implements ReactorStreamingHttpClient {
+class BridgedReactorHttpClient implements ReactorHttpClient {
 
-    private final StreamingHttpClient streamingHttpClient;
+    private final HttpClient httpClient;
 
     /**
      * Default constructor.
      * @param streamingHttpClient Streaming HTTP Client
      */
-    BridgedReactorHttpClient(StreamingHttpClient streamingHttpClient) {
-        this.streamingHttpClient = streamingHttpClient;
+    BridgedReactorHttpClient(HttpClient httpClient) {
+        this.httpClient = httpClient;
     }
-    
+
     @Override
     public BlockingHttpClient toBlocking() {
-        return null;
+        return httpClient.toBlocking();
     }
 
     @Override
-    public <I, O, E> Flux<HttpResponse<O>> exchange(HttpRequest<I> request, Argument<O> bodyType, Argument<E> errorType) {
-        return Flux.from(streamingHttpClient.exchange(request, bodyType, errorType));
+    public <I, O, E> Flux<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType, @NonNull Argument<E> errorType) {
+        return Flux.from(httpClient.exchange(request, bodyType, errorType));
     }
 
     @Override
-    public <I, O> Flux<HttpResponse<O>> exchange(HttpRequest<I> request, Argument<O> bodyType) {
-        return Flux.from(streamingHttpClient.exchange(request, bodyType));
+    public <I, O> Flux<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType) {
+        return Flux.from(httpClient.exchange(request, bodyType));
     }
 
     @Override
-    public <I, O, E> Flux<O> retrieve(HttpRequest<I> request, Argument<O> bodyType, Argument<E> errorType) {
-        return Flux.from(streamingHttpClient.retrieve(request, bodyType));
+    public <I, O, E> Flux<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType, @NonNull Argument<E> errorType) {
+        return Flux.from(httpClient.retrieve(request, bodyType));
     }
 
     @Override
-    public <I> Flux<HttpResponse<ByteBuffer>> exchange(HttpRequest<I> request) {
-        return Flux.from(streamingHttpClient.exchange(request));
+    public <I> Flux<HttpResponse<ByteBuffer>> exchange(@NonNull HttpRequest<I> request) {
+        return Flux.from(httpClient.exchange(request));
     }
 
     @Override
-    public Flux<HttpResponse<ByteBuffer>> exchange(String uri) {
-        return Flux.from(streamingHttpClient.exchange(uri));
+    public Flux<HttpResponse<ByteBuffer>> exchange(@NonNull String uri) {
+        return Flux.from(httpClient.exchange(uri));
     }
 
     @Override
-    public <O> Flux<HttpResponse<O>> exchange(String uri, Class<O> bodyType) {
-        return Flux.from(streamingHttpClient.exchange(uri, bodyType));
+    public <O> Flux<HttpResponse<O>> exchange(@NonNull String uri, @NonNull Class<O> bodyType) {
+        return Flux.from(httpClient.exchange(uri, bodyType));
     }
 
     @Override
-    public <I, O> Flux<HttpResponse<O>> exchange(HttpRequest<I> request, Class<O> bodyType) {
-        return Flux.from(streamingHttpClient.exchange(request, bodyType));
+    public <I, O> Flux<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Class<O> bodyType) {
+        return Flux.from(httpClient.exchange(request, bodyType));
     }
 
     @Override
-    public <I, O> Flux<O> retrieve(HttpRequest<I> request, Argument<O> bodyType) {
-        return Flux.from(streamingHttpClient.retrieve(request, bodyType));
+    public <I, O> Flux<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType) {
+        return Flux.from(httpClient.retrieve(request, bodyType));
     }
 
     @Override
-    public <I, O> Flux<O> retrieve(HttpRequest<I> request, Class<O> bodyType) {
-        return Flux.from(streamingHttpClient.retrieve(request, bodyType));
+    public <I, O> Flux<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Class<O> bodyType) {
+        return Flux.from(httpClient.retrieve(request, bodyType));
     }
 
     @Override
-    public <I> Flux<String> retrieve(HttpRequest<I> request) {
-        return Flux.from(streamingHttpClient.retrieve(request));
+    public <I> Flux<String> retrieve(@NonNull HttpRequest<I> request) {
+        return Flux.from(httpClient.retrieve(request));
     }
 
     @Override
-    public Flux<String> retrieve(String uri) {
-        return Flux.from(streamingHttpClient.retrieve(uri));
+    public Flux<String> retrieve(@NonNull String uri) {
+        return Flux.from(httpClient.retrieve(uri));
     }
 
     @Override
     public boolean isRunning() {
-        return streamingHttpClient.isRunning();
+        return httpClient.isRunning();
     }
 
-    @Override
-    public <I> Flux<ByteBuffer<?>> dataStream(HttpRequest<I> request) {
-        return Flux.from(streamingHttpClient.dataStream(request));
-    }
-
-    @Override
-    public <I> Flux<HttpResponse<ByteBuffer<?>>> exchangeStream(HttpRequest<I> request) {
-        return Flux.from(streamingHttpClient.exchangeStream(request));
-    }
-
-    @Override
-    public <I> Flux<Map<String, Object>> jsonStream(HttpRequest<I> request) {
-        return Flux.from(streamingHttpClient.jsonStream(request));
-    }
-
-    @Override
-    public <I, O> Flux<O> jsonStream(HttpRequest<I> request, Argument<O> type) {
-        return Flux.from(streamingHttpClient.jsonStream(request, type));
-    }
-
-    @Override
-    public <I, O> Flux<O> jsonStream(HttpRequest<I> request, Class<O> type) {
-        return Flux.from(streamingHttpClient.jsonStream(request, type));
-    }
 }
 
