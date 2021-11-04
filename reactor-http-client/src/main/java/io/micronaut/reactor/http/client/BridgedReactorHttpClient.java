@@ -23,10 +23,7 @@ import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.client.BlockingHttpClient;
 import io.micronaut.http.client.HttpClient;
-import io.micronaut.http.client.StreamingHttpClient;
 import reactor.core.publisher.Flux;
-
-import java.util.Map;
 
 /**
  * Internal bridge for the HTTP client.
@@ -41,7 +38,7 @@ class BridgedReactorHttpClient implements ReactorHttpClient {
 
     /**
      * Default constructor.
-     * @param streamingHttpClient Streaming HTTP Client
+     * @param httpClient HTTP Client
      */
     BridgedReactorHttpClient(HttpClient httpClient) {
         this.httpClient = httpClient;
