@@ -15,13 +15,17 @@
  */
 package io.micronaut.reactor.http.client;
 
+import io.micronaut.core.annotation.NonNull;
+import io.micronaut.core.annotation.Nullable;
 import io.micronaut.core.io.buffer.ByteBuffer;
 import io.micronaut.core.type.Argument;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
+import io.micronaut.http.client.HttpClientConfiguration;
 import io.micronaut.http.client.StreamingHttpClient;
 import reactor.core.publisher.Flux;
 
+import java.net.URL;
 import java.util.Map;
 
 /**
@@ -33,17 +37,47 @@ import java.util.Map;
 public interface ReactorStreamingHttpClient extends ReactorHttpClient, StreamingHttpClient {
 
     @Override
-    <I> Flux<ByteBuffer<?>> dataStream(HttpRequest<I> request);
+    <I> Flux<ByteBuffer<?>> dataStream(@NonNull HttpRequest<I> request);
 
     @Override
-    <I> Flux<HttpResponse<ByteBuffer<?>>> exchangeStream(HttpRequest<I> request);
+    <I> Flux<HttpResponse<ByteBuffer<?>>> exchangeStream(@NonNull HttpRequest<I> request);
 
     @Override
-    <I> Flux<Map<String, Object>> jsonStream(HttpRequest<I> request);
+    <I> Flux<Map<String, Object>> jsonStream(@NonNull HttpRequest<I> request);
 
     @Override
-    <I, O> Flux<O> jsonStream(HttpRequest<I> request, Argument<O> type);
+    <I, O> Flux<O> jsonStream(@NonNull HttpRequest<I> request, @NonNull Argument<O> type);
 
     @Override
-    <I, O> Flux<O> jsonStream(HttpRequest<I> request, Class<O> type);
+    <I, O> Flux<O> jsonStream(@NonNull HttpRequest<I> request, @NonNull Class<O> type);
+
+    /**
+     * Create a new {@link ReactorStreamingHttpClient}.
+     * Note that this method should only be used outside of the context of a Micronaut application.
+     * The returned {@link ReactorStreamingHttpClient} is not subject to dependency injection.
+     * The creator is responsible for closing the client to avoid leaking connections.
+     * Within a Micronaut application use {@link jakarta.inject.Inject} to inject a client instead.
+     *
+     * @param url The base URL
+     * @return The client
+     * @since 2.1.0
+     */
+    @NonNull
+    static ReactorStreamingHttpClient create(@Nullable URL url) {
+        return new BridgedReactorStreamingHttpClient(StreamingHttpClient.create(url));
+    }
+
+    /**
+     * Create a new {@link ReactorStreamingHttpClient} with the specified configuration. Note that this method should only be used
+     * outside of the context of an application. Within Micronaut use {@link jakarta.inject.Inject} to inject a client instead
+     *
+     * @param url The base URL
+     * @param configuration the client configuration
+     * @return The client
+     * @since 2.1.0
+     */
+    @NonNull
+    static ReactorStreamingHttpClient create(@Nullable URL url, @NonNull HttpClientConfiguration configuration) {
+        return new BridgedReactorStreamingHttpClient(StreamingHttpClient.create(url, configuration));
+    }
 }

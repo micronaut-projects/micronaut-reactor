@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2019 original authors
+ * Copyright 2017-2020 original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,48 +13,50 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.reactor.http.client;
+package io.micronaut.reactor.http.client.websocket;
 
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.annotation.Nullable;
-import io.micronaut.core.io.buffer.ByteBuffer;
-import io.micronaut.core.type.Argument;
-import io.micronaut.http.HttpRequest;
+import io.micronaut.http.MutableHttpRequest;
 import io.micronaut.http.client.HttpClientConfiguration;
-import io.micronaut.http.client.sse.SseClient;
-import io.micronaut.http.sse.Event;
-import io.micronaut.reactor.http.client.sse.BridgedReactorSseClient;
+import io.micronaut.websocket.WebSocketClient;
 import reactor.core.publisher.Flux;
 
+import java.net.URI;
 import java.net.URL;
+import java.util.Map;
 
 /**
- * Reactor variation of the {@link SseClient} interface.
+ * Specialization of the {@link WebSocketClient} interface for Project Reactor.
  *
- * @author graemerocher
- * @since 1.0.0
+ * @author James Kleeh
+ * @since 2.1.0
+ * @see WebSocketClient
  */
-public interface ReactorSseClient extends SseClient {
+public interface ReactorWebSocketClient extends WebSocketClient {
 
     @Override
-    <I> Flux<Event<ByteBuffer<?>>> eventStream(@NonNull HttpRequest<I> request);
-
-    @Override
-    <I, B> Flux<Event<B>> eventStream(@NonNull HttpRequest<I> request, @NonNull Argument<B> eventType);
-
-    @Override
-    <I, B> Flux<Event<B>> eventStream(@NonNull HttpRequest<I> request, @NonNull Class<B> eventType);
-
-    @Override
-    <B> Flux<Event<B>> eventStream(@NonNull String uri, @NonNull Class<B> eventType);
-
-    @Override
-    <B> Flux<Event<B>> eventStream(@NonNull String uri, @NonNull Argument<B> eventType);
+    <T extends AutoCloseable> Flux<T> connect(Class<T> clientEndpointType, MutableHttpRequest<?> request);
 
     /**
-     * Create a new {@link ReactorSseClient}.
+     * {@inheritDoc}
+     */
+    @Override
+    <T extends AutoCloseable> Flux<T> connect(Class<T> clientEndpointType, URI uri);
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    <T extends AutoCloseable> Flux<T> connect(Class<T> clientEndpointType, Map<String, Object> parameters);
+
+    @Override
+    <T extends AutoCloseable> Flux<T> connect(Class<T> clientEndpointType, String uri);
+
+    /**
+     * Create a new {@link ReactorWebSocketClient}.
      * Note that this method should only be used outside of the context of a Micronaut application.
-     * The returned {@link ReactorSseClient} is not subject to dependency injection.
+     * The returned {@link ReactorWebSocketClient} is not subject to dependency injection.
      * The creator is responsible for closing the client to avoid leaking connections.
      * Within a Micronaut application use {@link jakarta.inject.Inject} to inject a client instead.
      *
@@ -63,12 +65,12 @@ public interface ReactorSseClient extends SseClient {
      * @since 2.1.0
      */
     @NonNull
-    static ReactorSseClient create(@Nullable URL url) {
-        return new BridgedReactorSseClient(SseClient.create(url));
+    static ReactorWebSocketClient create(@Nullable URL url) {
+        return new BridgedReactorWebSocketClient(WebSocketClient.create(url));
     }
 
     /**
-     * Create a new {@link ReactorSseClient} with the specified configuration. Note that this method should only be used
+     * Create a new {@link ReactorWebSocketClient} with the specified configuration. Note that this method should only be used
      * outside of the context of an application. Within Micronaut use {@link jakarta.inject.Inject} to inject a client instead
      *
      * @param url The base URL
@@ -77,7 +79,7 @@ public interface ReactorSseClient extends SseClient {
      * @since 2.1.0
      */
     @NonNull
-    static ReactorSseClient create(@Nullable URL url, @NonNull HttpClientConfiguration configuration) {
-        return new BridgedReactorSseClient(SseClient.create(url, configuration));
+    static ReactorWebSocketClient create(@Nullable URL url, @NonNull HttpClientConfiguration configuration) {
+        return new BridgedReactorWebSocketClient(WebSocketClient.create(url, configuration));
     }
 }
