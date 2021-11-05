@@ -46,7 +46,8 @@ public interface ReactorProxyHttpClient extends ProxyHttpClient {
      * @param url The base URL
      * @return The client
      */
-    static ProxyHttpClient create(@Nullable URL url) {
+    @NonNull
+    static ReactorProxyHttpClient create(@Nullable URL url) {
         return new BridgedReactorProxyHttpClient(ProxyHttpClient.create(url));
     }
 
@@ -59,7 +60,8 @@ public interface ReactorProxyHttpClient extends ProxyHttpClient {
      * @return The client
      * @since 2.2.0
      */
-    static ProxyHttpClient create(@Nullable URL url, @NonNull HttpClientConfiguration configuration) {
+    @NonNull
+    static ReactorProxyHttpClient create(@Nullable URL url, @NonNull HttpClientConfiguration configuration) {
         return new BridgedReactorProxyHttpClient(ProxyHttpClient.create(url, configuration));
     }
 }

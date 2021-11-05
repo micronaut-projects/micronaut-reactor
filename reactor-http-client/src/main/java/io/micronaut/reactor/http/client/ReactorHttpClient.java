@@ -111,6 +111,7 @@ public interface ReactorHttpClient extends HttpClient {
      * @return The client
      * @since 2.1.0
      */
+    @NonNull
     static ReactorHttpClient create(@Nullable URL url) {
         return new BridgedReactorHttpClient(HttpClient.create(url));
     }
@@ -124,6 +125,7 @@ public interface ReactorHttpClient extends HttpClient {
      * @return The client
      * @since 2.1.0
      */
+    @NonNull
     static ReactorHttpClient create(@Nullable URL url, @NonNull HttpClientConfiguration configuration) {
         return new BridgedReactorHttpClient(HttpClient.create(url, configuration));
     }

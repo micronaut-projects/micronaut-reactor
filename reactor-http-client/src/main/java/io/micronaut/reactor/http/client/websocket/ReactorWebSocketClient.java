@@ -64,6 +64,7 @@ public interface ReactorWebSocketClient extends WebSocketClient {
      * @return The client
      * @since 2.1.0
      */
+    @NonNull
     static ReactorWebSocketClient create(@Nullable URL url) {
         return new BridgedReactorWebSocketClient(WebSocketClient.create(url));
     }
@@ -77,6 +78,7 @@ public interface ReactorWebSocketClient extends WebSocketClient {
      * @return The client
      * @since 2.1.0
      */
+    @NonNull
     static ReactorWebSocketClient create(@Nullable URL url, @NonNull HttpClientConfiguration configuration) {
         return new BridgedReactorWebSocketClient(WebSocketClient.create(url, configuration));
     }

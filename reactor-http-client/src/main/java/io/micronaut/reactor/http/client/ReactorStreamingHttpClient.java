@@ -62,6 +62,7 @@ public interface ReactorStreamingHttpClient extends ReactorHttpClient, Streaming
      * @return The client
      * @since 2.1.0
      */
+    @NonNull
     static ReactorStreamingHttpClient create(@Nullable URL url) {
         return new BridgedReactorStreamingHttpClient(StreamingHttpClient.create(url));
     }
@@ -75,6 +76,7 @@ public interface ReactorStreamingHttpClient extends ReactorHttpClient, Streaming
      * @return The client
      * @since 2.1.0
      */
+    @NonNull
     static ReactorStreamingHttpClient create(@Nullable URL url, @NonNull HttpClientConfiguration configuration) {
         return new BridgedReactorStreamingHttpClient(StreamingHttpClient.create(url, configuration));
     }

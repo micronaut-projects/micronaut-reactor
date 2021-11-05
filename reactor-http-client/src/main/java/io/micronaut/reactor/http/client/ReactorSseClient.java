@@ -62,6 +62,7 @@ public interface ReactorSseClient extends SseClient {
      * @return The client
      * @since 2.1.0
      */
+    @NonNull
     static ReactorSseClient create(@Nullable URL url) {
         return new BridgedReactorSseClient(SseClient.create(url));
     }
@@ -75,6 +76,7 @@ public interface ReactorSseClient extends SseClient {
      * @return The client
      * @since 2.1.0
      */
+    @NonNull
     static ReactorSseClient create(@Nullable URL url, @NonNull HttpClientConfiguration configuration) {
         return new BridgedReactorSseClient(SseClient.create(url, configuration));
     }
