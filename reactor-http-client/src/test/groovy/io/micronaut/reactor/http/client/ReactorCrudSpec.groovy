@@ -64,7 +64,7 @@ class ReactorCrudSpec extends Specification {
         book != null
         book.title == "The Stand"
         book.id == 1
-        reactorHttpClient.retrieve(HttpRequest.GET("/reactor/books/" + book.id), Book).blockFirst()
+        reactorHttpClient.retrieve(HttpRequest.GET("/reactor/books/" + book.id), Book).block()
                 .title == "The Stand"
 
         when:
