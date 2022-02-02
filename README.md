@@ -2,6 +2,7 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.micronaut.reactor/micronaut-reactor.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.micronaut.reactor%22%20AND%20a:%22micronaut-reactor%22)
 [![Build Status](https://github.com/micronaut-projects/micronaut-reactor/workflows/Java%20CI/badge.svg)](https://github.com/micronaut-projects/micronaut-reactor/actions)
+[![Revved up by Gradle Enterprise](https://img.shields.io/badge/Revved%20up%20by-Gradle%20Enterprise-06A0CE?logo=Gradle&labelColor=02303A)](https://ge.micronaut.io/scans)
 
 Micronaut Reactor adds support for [Project Reactor](https://projectreactor.io/) to a Micronaut 2.x application. If you are 
 using Micronaut 1.x you do not need this module.
