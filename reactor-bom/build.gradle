@@ -1,0 +1,9 @@
+plugins {
+    id "io.micronaut.build.internal.bom"
+}
+
+dependencies {
+    constraints {
+        api("io.projectreactor:reactor-core:$reactorVersion")
+    }
+}
