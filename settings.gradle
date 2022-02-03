@@ -10,4 +10,5 @@ plugins {
 rootProject.name = 'reactor-parent'
 
 include 'reactor'
+include 'reactor-bom'
 include 'reactor-http-client'
