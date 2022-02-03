@@ -6,6 +6,6 @@ dependencies {
     api "io.micronaut:micronaut-runtime:$micronautVersion"
     compileOnly "io.reactivex.rxjava2:rxjava:$rxJava2Version"
     compileOnly "io.reactivex.rxjava3:rxjava:$rxJava3Version"
-    compileOnly "io.micronaut:micronaut-tracing"
+    compileOnly "io.micronaut.tracing:micronaut-tracing-zipkin"
     api "io.projectreactor:reactor-core:$reactorVersion"
 }

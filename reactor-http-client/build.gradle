@@ -10,7 +10,7 @@ dependencies {
     testImplementation "io.reactivex.rxjava2:rxjava:$rxJava2Version"
     testImplementation "io.reactivex.rxjava3:rxjava:$rxJava3Version"
     testImplementation("io.micronaut:micronaut-http-server-netty")
-    testImplementation("io.micronaut:micronaut-tracing")
+    testImplementation("io.micronaut.tracing:micronaut-tracing-zipkin")
     testImplementation 'io.zipkin.brave:brave-instrumentation-http'
     testImplementation 'io.zipkin.reporter2:zipkin-reporter'
     testImplementation 'io.opentracing.brave:brave-opentracing'
