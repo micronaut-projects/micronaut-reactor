@@ -155,13 +155,41 @@ using Micronaut 1.x you do not need this module.</p>
 <p>Add the following dependency to your Micronaut application:</p>
 </div>
 <div class="paragraph">
-<p>dependency:io.micronaut.<a href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/micronaut-reactor/.html">scope="compile", version="2.2.1-SNAPSHOT"</a></p>
+<p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.reactor:micronaut-reactor")</span></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
+    &lt;groupId&gt;io.micronaut.reactor&lt;/groupId&gt;
+    &lt;artifactId&gt;micronaut-reactor&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</p>
 </div>
 <div class="paragraph">
 <p>To use the HTTP client add the following dependency:</p>
 </div>
 <div class="paragraph">
-<p>dependency:io.micronaut.<a href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/micronaut-reactor-http-client/.html">scope="compile", version="2.2.1-SNAPSHOT"</a></p>
+<p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.reactor:micronaut-reactor-http-client")</span></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
+    &lt;groupId&gt;io.micronaut.reactor&lt;/groupId&gt;
+    &lt;artifactId&gt;micronaut-reactor-http-client&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</p>
 </div>
 <div class="paragraph">
 <p>To use the Reactor variation of the Micronaut HTTP client inject the <a href="../api/io/micronaut/reactor/http/client/ReactorHttpClient.html">ReactorHttpClient</a> interface (or one the other variants). For example:</p>
