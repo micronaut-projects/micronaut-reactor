@@ -3,31 +3,44 @@ package io.micronaut.reactor.http.client
 import spock.lang.Specification
 import spock.util.concurrent.PollingConditions
 
-class RxClientCloseSpec extends Specification {
-    def "confirm ReactorHttpClient can be stopped"() {
+class ReactorHttpClientCloseSpec extends Specification {
+    void "confirm ReactorHttpClient can be stopped"() {
         given:
-        def client = ReactorHttpClient.create(new URL("http://localhost"))
+        ReactorHttpClient client = ReactorHttpClient.create(new URL("http://localhost"))
 
         expect:
         client.isRunning()
 
         when:
         client.stop()
+
         then:
         new PollingConditions().eventually {
             !client.isRunning()
         }
+
+        when:
+        client.start()
+
+        then:
+        new PollingConditions().eventually {
+            client.isRunning()
+        }
+
+        cleanup:
+        client.close()
     }
 
-    def "confirm ReactorHttpClient can be closed"() {
+    void "confirm ReactorHttpClient can be closed"() {
         given:
-        def client = ReactorHttpClient.create(new URL("http://localhost"))
+        ReactorHttpClient client = ReactorHttpClient.create(new URL("http://localhost"))
 
         expect:
         client.isRunning()
 
         when:
         client.close()
+
         then:
         new PollingConditions().eventually {
             !client.isRunning()
