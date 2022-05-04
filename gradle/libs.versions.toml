@@ -1,0 +1,23 @@
+[versions]
+reactor = "3.4.15"
+rxjava2 = "2.2.21"
+rxjava3 = "3.1.3"
+
+# Micronaut
+micronaut = "3.4.3"
+
+
+[libraries]
+# Micronaut
+micronaut-graal = { module = "io.micronaut:micronaut-graal" }
+micronaut-http-client = { module = "io.micronaut:micronaut-http-client" }
+micronaut-http-server-netty = { module = "io.micronaut:micronaut-http-server-netty" }
+micronaut-runtime = { module = "io.micronaut:micronaut-runtime" }
+micronaut-tracing-zipkin = { module = "io.micronaut.tracing:micronaut-tracing-zipkin" }
+
+brave-instrumentation-http = { module = "io.zipkin.brave:brave-instrumentation-http" }
+brave-opentracing = { module = "io.opentracing.brave:brave-opentracing" }
+reactor-core = { module = "io.projectreactor:reactor-core", version.ref = "reactor" }
+zipkin-reporter = { module = "io.zipkin.reporter2:zipkin-reporter" }
+rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava2" }
+rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava3" }

@@ -3,16 +3,16 @@ plugins {
 }
 
 dependencies {
-    annotationProcessor "io.micronaut:micronaut-graal:$micronautVersion"
+    annotationProcessor(libs.micronaut.graal)
 
     api project(":reactor")
-    api "io.micronaut:micronaut-http-client"
+    api(libs.micronaut.http.client)
 
-    testImplementation "io.reactivex.rxjava2:rxjava:$rxJava2Version"
-    testImplementation "io.reactivex.rxjava3:rxjava:$rxJava3Version"
-    testImplementation("io.micronaut:micronaut-http-server-netty")
-    testImplementation("io.micronaut.tracing:micronaut-tracing-zipkin")
-    testImplementation 'io.zipkin.brave:brave-instrumentation-http'
-    testImplementation 'io.zipkin.reporter2:zipkin-reporter'
-    testImplementation 'io.opentracing.brave:brave-opentracing'
+    testImplementation(libs.rxjava2)
+    testImplementation(libs.rxjava3)
+    testImplementation(libs.micronaut.http.server.netty)
+    testImplementation(libs.micronaut.tracing.zipkin)
+    testImplementation(libs.brave.instrumentation.http)
+    testImplementation(libs.zipkin.reporter)
+    testImplementation(libs.brave.opentracing)
 }

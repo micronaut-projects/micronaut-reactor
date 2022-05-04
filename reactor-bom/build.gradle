@@ -4,6 +4,6 @@ plugins {
 
 dependencies {
     constraints {
-        api("io.projectreactor:reactor-core:$reactorVersion")
+        api(libs.reactor.core)
     }
 }
