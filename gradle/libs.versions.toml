@@ -12,13 +12,6 @@ managed-reactor = { module = "io.projectreactor:reactor-core", version.ref = "ma
 
 managed-reactor-core = { module = "io.projectreactor:reactor-core", version.ref = "managed-reactor" }
 
-# Micronaut
-micronaut-graal = { module = "io.micronaut:micronaut-graal" }
-micronaut-http-client = { module = "io.micronaut:micronaut-http-client" }
-micronaut-http-server-netty = { module = "io.micronaut:micronaut-http-server-netty" }
-micronaut-runtime = { module = "io.micronaut:micronaut-runtime" }
-micronaut-tracing-zipkin = { module = "io.micronaut.tracing:micronaut-tracing-zipkin" }
-
 brave-instrumentation-http = { module = "io.zipkin.brave:brave-instrumentation-http" }
 brave-opentracing = { module = "io.opentracing.brave:brave-opentracing" }
 zipkin-reporter = { module = "io.zipkin.reporter2:zipkin-reporter" }

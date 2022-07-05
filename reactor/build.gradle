@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    annotationProcessor(libs.micronaut.graal)
+    annotationProcessor(mn.micronaut.graal)
 
     api(libs.managed.reactor.core)
 
     compileOnly(libs.rxjava2)
     compileOnly(libs.rxjava3)
-    compileOnly(libs.micronaut.tracing.zipkin)
+    compileOnly(mn.micronaut.tracing.zipkin)
 }
