@@ -3,12 +3,11 @@ plugins {
 }
 
 dependencies {
-    annotationProcessor "io.micronaut:micronaut-graal"
+    annotationProcessor(mn.micronaut.graal)
 
-    api "io.micronaut:micronaut-runtime"
-    api "io.projectreactor:reactor-core:$reactorVersion"
+    api(libs.managed.reactor.core)
 
-    compileOnly "io.reactivex.rxjava2:rxjava:$rxJava2Version"
-    compileOnly "io.reactivex.rxjava3:rxjava:$rxJava3Version"
-    compileOnly "io.micronaut.tracing:micronaut-tracing-zipkin"
+    compileOnly(libs.rxjava2)
+    compileOnly(libs.rxjava3)
+    compileOnly(mn.micronaut.tracing.zipkin)
 }
