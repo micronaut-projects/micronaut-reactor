@@ -1,0 +1,19 @@
+[versions]
+managed-reactor = "3.4.19"
+# Required to keep catalog compatibility with 3.4.x.  Can be removed for 4.0.0
+managed-reactor-compat = "3.4.19"
+
+rxjava2 = "2.2.21"
+rxjava3 = "3.1.5"
+
+[libraries]
+# Duplicated to keep catalog compatibility with 3.4.x.  Can be removed for 4.0.0
+managed-reactor = { module = "io.projectreactor:reactor-core", version.ref = "managed-reactor-compat" }
+
+managed-reactor-core = { module = "io.projectreactor:reactor-core", version.ref = "managed-reactor" }
+
+brave-instrumentation-http = { module = "io.zipkin.brave:brave-instrumentation-http" }
+brave-opentracing = { module = "io.opentracing.brave:brave-opentracing" }
+zipkin-reporter = { module = "io.zipkin.reporter2:zipkin-reporter" }
+rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava2" }
+rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava3" }
