@@ -11,6 +11,7 @@ rxjava3 = "3.1.5"
 managed-reactor = { module = "io.projectreactor:reactor-core", version.ref = "managed-reactor-compat" }
 
 managed-reactor-core = { module = "io.projectreactor:reactor-core", version.ref = "managed-reactor" }
+managed-reactor-test = { module = "io.projectreactor:reactor-test", version.ref = "managed-reactor" }
 
 brave-instrumentation-http = { module = "io.zipkin.brave:brave-instrumentation-http" }
 brave-opentracing = { module = "io.opentracing.brave:brave-opentracing" }
