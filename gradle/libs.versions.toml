@@ -1,5 +1,5 @@
 [versions]
-managed-reactor = "3.4.22"
+managed-reactor = "3.4.23"
 # Required to keep catalog compatibility with 3.4.x.  Can be removed for 4.0.0
 managed-reactor-compat = "3.4.22"
 
