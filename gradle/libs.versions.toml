@@ -1,15 +1,10 @@
 [versions]
 managed-reactor = "3.4.23"
-# Required to keep catalog compatibility with 3.4.x.  Can be removed for 4.0.0
-managed-reactor-compat = "3.4.23"
 
 rxjava2 = "2.2.21"
 rxjava3 = "3.1.5"
 
 [libraries]
-# Duplicated to keep catalog compatibility with 3.4.x.  Can be removed for 4.0.0
-managed-reactor = { module = "io.projectreactor:reactor-core", version.ref = "managed-reactor-compat" }
-
 managed-reactor-core = { module = "io.projectreactor:reactor-core", version.ref = "managed-reactor" }
 managed-reactor-test = { module = "io.projectreactor:reactor-test", version.ref = "managed-reactor" }
 
