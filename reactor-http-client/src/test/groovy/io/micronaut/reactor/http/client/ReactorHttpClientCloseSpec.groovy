@@ -1,11 +1,9 @@
 package io.micronaut.reactor.http.client
 
-import spock.lang.PendingFeature
 import spock.lang.Specification
 import spock.util.concurrent.PollingConditions
 
 class ReactorHttpClientCloseSpec extends Specification {
-    @PendingFeature
     void "confirm ReactorHttpClient can be stopped"() {
         given:
         ReactorHttpClient client = ReactorHttpClient.create(new URL("http://localhost"))
