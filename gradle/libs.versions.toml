@@ -14,9 +14,5 @@ managed-reactor-bom = "2020.0.24"
 boms-reactor = { module = "io.projectreactor:reactor-bom", version.ref = "managed-reactor-bom" }
 
 reactor-core = { module = "io.projectreactor:reactor-core" }
-reactor-test = { module = "io.projectreactor:reactor-test" }
-brave-instrumentation-http = { module = "io.zipkin.brave:brave-instrumentation-http" }
-brave-opentracing = { module = "io.opentracing.brave:brave-opentracing" }
-zipkin-reporter = { module = "io.zipkin.reporter2:zipkin-reporter" }
 rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava2" }
 rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava3" }

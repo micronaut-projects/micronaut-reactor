@@ -5,14 +5,10 @@ plugins {
 dependencies {
     annotationProcessor(mn.micronaut.graal)
 
-    api project(":reactor")
+    api(project(":reactor"))
     api(mn.micronaut.http.client)
 
     testImplementation(libs.rxjava2)
-    testImplementation(libs.rxjava3)
     testImplementation(mn.micronaut.http.server.netty)
     testImplementation(mn.micronaut.tracing.zipkin)
-    testImplementation(libs.brave.instrumentation.http)
-    testImplementation(libs.zipkin.reporter)
-    testImplementation(libs.brave.opentracing)
 }
