@@ -5,7 +5,6 @@ import spock.lang.Specification
 import spock.util.concurrent.PollingConditions
 
 class ReactorStreamingHttpClientCloseSpec extends Specification {
-    @PendingFeature
     void "confirm ReactorStreamingHttpClient can be stopped"() {
         given:
         ReactorHttpClient client = ReactorStreamingHttpClient.create(new URL("http://localhost"))
