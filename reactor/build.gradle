@@ -9,5 +9,5 @@ dependencies {
 
     compileOnly(libs.rxjava2)
     compileOnly(libs.rxjava3)
-    compileOnly(mn.micronaut.tracing.zipkin)
+    compileOnly(mn.micronaut.tracing.zipkin)    
 }

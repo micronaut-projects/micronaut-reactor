@@ -10,7 +10,7 @@ import io.micronaut.http.client.annotation.Client
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Mono
 import spock.lang.Specification
-
+import io.micronaut.serde.annotation.Serdeable
 import jakarta.inject.Inject
 
 @MicronautTest
@@ -30,6 +30,7 @@ class HttpGetSpec extends Specification{
         response.body().isEmpty()
     }
 
+    @Serdeable
     static class Book {
         String title
     }

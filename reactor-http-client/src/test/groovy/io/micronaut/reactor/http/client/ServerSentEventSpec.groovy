@@ -17,6 +17,7 @@ import org.reactivestreams.Publisher
 import reactor.core.publisher.Flux
 import reactor.core.publisher.SynchronousSink
 import spock.lang.Specification
+import io.micronaut.serde.annotation.Serdeable
 
 import jakarta.inject.Inject
 import java.time.Duration
@@ -169,6 +170,7 @@ class ServerSentEventSpec extends Specification {
 
     @EqualsAndHashCode
     @ToString(includePackage = false)
+    @Serdeable
     static class Foo {
         String name
         Integer age

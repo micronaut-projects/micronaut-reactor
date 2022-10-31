@@ -11,8 +11,10 @@ dependencies {
     testImplementation(libs.rxjava2)
     testImplementation(libs.rxjava3)
     testImplementation(mn.micronaut.http.server.netty)
+    testImplementation(mn.micronaut.retry)
     testImplementation(mn.micronaut.tracing.zipkin)
     testImplementation(libs.brave.instrumentation.http)
     testImplementation(libs.zipkin.reporter)
     testImplementation(libs.brave.opentracing)
+    testImplementation(mn.micronaut.serde.jackson)
 }
