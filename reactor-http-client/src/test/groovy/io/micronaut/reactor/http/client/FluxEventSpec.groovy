@@ -1,5 +1,6 @@
 package io.micronaut.reactor.http.client
 
+import io.micronaut.core.annotation.Creator
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
@@ -9,7 +10,7 @@ import io.micronaut.http.client.annotation.Client
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Flux
 import spock.lang.Specification
-
+import io.micronaut.serde.annotation.Serdeable
 import jakarta.inject.Inject
 import javax.validation.constraints.NotBlank
 
@@ -47,10 +48,12 @@ class FluxEventSpec extends Specification {
         }
     }
 
+    @Serdeable
     static class Hello {
         String name
         int number
 
+        @Creator
         Hello(String name, int number) {
             this.name = name
             this.number = number

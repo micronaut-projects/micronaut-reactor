@@ -18,6 +18,7 @@ package io.micronaut.reactor.convert;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.core.annotation.Internal;
 import io.micronaut.core.convert.ConversionService;
+import io.micronaut.core.convert.MutableConversionService;
 import io.micronaut.core.convert.TypeConverterRegistrar;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
@@ -34,9 +35,9 @@ import java.util.Optional;
 @Singleton
 @Internal
 @Requires(classes = {io.reactivex.Maybe.class, io.reactivex.Flowable.class})
-public class ReactorToRxJava2ConverterRegistrar  implements TypeConverterRegistrar {
+public class ReactorToRxJava2ConverterRegistrar implements TypeConverterRegistrar {
     @Override
-    public void register(ConversionService<?> conversionService) {
+    public void register(MutableConversionService conversionService) {
         conversionService.addConverter(Mono.class,
                 Maybe.class,
                 (object, targetType, context) -> Optional.of(Flowable.fromPublisher(object).firstElement())
