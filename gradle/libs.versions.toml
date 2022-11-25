@@ -1,5 +1,5 @@
 [versions]
-managed-reactor = "3.4.24"
+managed-reactor = "3.5.0"
 
 rxjava2 = "2.2.21"
 rxjava3 = "3.1.5"
