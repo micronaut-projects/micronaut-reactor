@@ -9,6 +9,8 @@ dependencies {
     api(mn.micronaut.http.client)
 
     testImplementation(libs.rxjava2)
+    testImplementation(libs.rxjava3)
     testImplementation(mn.micronaut.http.server.netty)
     testImplementation(mnTracing.micronaut.tracing.zipkin)
+    testImplementation(mnSerde.micronaut.serde.jackson)
 }

@@ -15,17 +15,15 @@
  */
 package io.micronaut.reactor.convert;
 
-import io.micronaut.context.annotation.Requires;
-import io.micronaut.core.annotation.Internal;
-import io.micronaut.core.annotation.TypeHint;
-import io.micronaut.core.convert.ConversionService;
-import io.micronaut.core.convert.TypeConverterRegistrar;
+import java.util.Optional;
+
 import org.reactivestreams.Publisher;
+
+import io.micronaut.core.annotation.TypeHint;
+import io.micronaut.core.convert.MutableConversionService;
+import io.micronaut.core.convert.TypeConverterRegistrar;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import jakarta.inject.Singleton;
-import java.util.Optional;
 
 /**
  * Converter registrar for Reactor.
@@ -33,14 +31,10 @@ import java.util.Optional;
  * @author graemerocher
  * @since 2.0
  */
-@Singleton
-@Internal
-@Requires(sdk = Requires.Sdk.MICRONAUT, version = "2.0.0")
-@Requires(classes = Flux.class)
 @TypeHint({Flux.class, Mono.class})
-class ReactorConverterRegistrar implements TypeConverterRegistrar {
+public final class ReactorConverterRegistrar implements TypeConverterRegistrar {
     @Override
-    public void register(ConversionService<?> conversionService) {
+    public void register(MutableConversionService conversionService) {
         conversionService.addConverter(
                 Publisher.class,
                 Flux.class,

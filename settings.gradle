@@ -19,4 +19,5 @@ micronautBuild {
     addSnapshotRepository()
     importMicronautCatalog()
     importMicronautCatalog("micronaut-tracing")
+    importMicronautCatalog("micronaut-serde")
 }

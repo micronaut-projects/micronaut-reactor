@@ -1,0 +1,37 @@
+[
+  {
+    "type": "io.micronaut.reactor.convert.$ReactorConverterRegistrar$Definition$Reference",
+    "member": "Field $ANNOTATION_METADATA",
+    "reason": "Micronaut 4.0.0 changes bean definition"
+  },
+  {
+    "type": "io.micronaut.reactor.convert.$ReactorConverterRegistrar$Definition$Reference",
+    "member": "Constructor io.micronaut.reactor.convert.$ReactorConverterRegistrar$Definition$Reference()",
+    "reason": "Micronaut 4.0.0 changes bean definition"
+  },
+  {
+    "type": "io.micronaut.reactor.convert.$ReactorConverterRegistrar$Definition$Reference",
+    "member": "Implemented interface io.micronaut.core.annotation.AnnotationSource",
+    "reason": "Micronaut 4.0.0 changes bean definition"
+  },
+  {
+    "type": "io.micronaut.reactor.convert.$ReactorConverterRegistrar$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanContextConditional",
+    "reason": "Micronaut 4.0.0 changes bean definition"
+  },
+  {
+    "type": "io.micronaut.reactor.convert.$ReactorConverterRegistrar$Definition$Reference",
+    "member": "Implemented interface io.micronaut.core.annotation.AnnotationMetadataProvider",
+    "reason": "Micronaut 4.0.0 changes bean definition"
+  },
+  {
+    "type": "io.micronaut.reactor.convert.$ReactorConverterRegistrar$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanType",
+    "reason": "Micronaut 4.0.0 changes bean definition"
+  },
+  {
+    "type": "io.micronaut.reactor.convert.$ReactorConverterRegistrar$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanDefinitionReference",
+    "reason": "Micronaut 4.0.0 changes bean definition"
+  }
+]

@@ -19,6 +19,8 @@ package io.micronaut.reactor.http.client
 import io.micronaut.http.annotation.*
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.retry.annotation.Fallback
+import io.micronaut.retry.annotation.Recoverable
+import io.micronaut.serde.annotation.Serdeable
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
@@ -89,6 +91,7 @@ class ReactorFallbackSpec extends Specification {
 
 
     @Client('/reactor/fallback/books')
+    @Recoverable
     static interface BookClient extends BookApi {
     }
 
@@ -184,7 +187,7 @@ class ReactorFallbackSpec extends Specification {
         Mono<Book> update(Long id, String title)
     }
 
-
+    @Serdeable
     static class Book {
         Long id
         String title
