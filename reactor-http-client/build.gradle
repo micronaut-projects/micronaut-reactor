@@ -10,5 +10,5 @@ dependencies {
 
     testImplementation(libs.rxjava2)
     testImplementation(mn.micronaut.http.server.netty)
-    testImplementation(mn.micronaut.tracing.zipkin)
+    testImplementation(mnTracing.micronaut.tracing.zipkin)
 }

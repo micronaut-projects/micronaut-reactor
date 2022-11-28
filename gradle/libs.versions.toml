@@ -1,9 +1,11 @@
 [versions]
 micronaut = "4.0.0-SNAPSHOT"
 micronaut-docs = "2.0.0"
-micronaut-test = "3.7.0"
-groovy = "4.0.5"
+micronaut-test = "4.0.0-SNAPSHOT"
+groovy = "4.0.6"
 spock = "2.3-groovy-4.0"
+
+micronaut-tracing = "5.0.0-SNAPSHOT"
 
 rxjava2 = "2.2.21"
 rxjava3 = "3.1.5"
@@ -12,6 +14,8 @@ managed-reactor-bom = "2020.0.24"
 
 [libraries]
 boms-reactor = { module = "io.projectreactor:reactor-bom", version.ref = "managed-reactor-bom" }
+
+micronaut-tracing = { module = "io.micronaut.tracing:micronaut-tracing-bom", version.ref = "micronaut-tracing" }
 
 reactor-core = { module = "io.projectreactor:reactor-core" }
 rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava2" }
