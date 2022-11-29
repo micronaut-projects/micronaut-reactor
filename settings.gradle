@@ -15,13 +15,9 @@ include 'reactor'
 include 'reactor-bom'
 include 'reactor-http-client'
 
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-        maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
-    }
-}
-
 micronautBuild {
+    addSnapshotRepository()
     importMicronautCatalog()
+    importMicronautCatalog("micronaut-tracing")
+    importMicronautCatalog("micronaut-serde")
 }
