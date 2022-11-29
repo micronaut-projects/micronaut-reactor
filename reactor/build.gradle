@@ -1,11 +1,13 @@
 plugins {
-    id "io.micronaut.build.internal.module"
+    id "io.micronaut.build.internal.reactor-module"
 }
+
 dependencies {
-    annotationProcessor "io.micronaut:micronaut-graal:$micronautVersion"
-    api "io.micronaut:micronaut-runtime:$micronautVersion"
-    compileOnly "io.reactivex.rxjava2:rxjava:$rxJava2Version"
-    compileOnly "io.reactivex.rxjava3:rxjava:$rxJava3Version"
-    compileOnly "io.micronaut:micronaut-tracing"
-    api "io.projectreactor:reactor-core:$reactorVersion"
+    annotationProcessor(mn.micronaut.graal)
+
+    api(libs.reactor.core)
+
+    compileOnly(libs.rxjava2)
+    compileOnly(libs.rxjava3)
+    compileOnly(mnTracing.micronaut.tracing.zipkin)
 }

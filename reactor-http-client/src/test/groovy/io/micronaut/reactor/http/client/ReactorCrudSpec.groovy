@@ -19,6 +19,7 @@ package io.micronaut.reactor.http.client
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.annotation.*
 import io.micronaut.http.client.annotation.Client
+import io.micronaut.serde.annotation.Serdeable
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Mono
 import spock.lang.Specification
@@ -160,6 +161,7 @@ class ReactorCrudSpec extends Specification {
     }
 
 
+    @Serdeable
     static class Book {
         Long id
         String title

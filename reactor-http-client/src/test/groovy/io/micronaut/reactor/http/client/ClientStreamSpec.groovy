@@ -5,6 +5,7 @@ import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.client.annotation.Client
+import io.micronaut.serde.annotation.Serdeable
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Flux
 import spock.lang.Specification
@@ -71,6 +72,7 @@ class ClientStreamSpec extends Specification {
         Flux<Book> jsonStream()
     }
 
+    @Serdeable
     static class Book {
         String title
     }

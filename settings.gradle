@@ -4,10 +4,20 @@ pluginManagement {
         mavenCentral()
     }
 }
+
 plugins {
-    id 'io.micronaut.build.shared.settings' version '4.2.6'
+    id("io.micronaut.build.shared.settings") version "6.1.0"
 }
-rootProject.name = 'reactor'
+
+rootProject.name = 'reactor-parent'
 
 include 'reactor'
+include 'reactor-bom'
 include 'reactor-http-client'
+
+micronautBuild {
+    addSnapshotRepository()
+    importMicronautCatalog()
+    importMicronautCatalog("micronaut-tracing")
+    importMicronautCatalog("micronaut-serde")
+}
