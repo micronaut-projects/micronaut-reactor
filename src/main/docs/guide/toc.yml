@@ -1,6 +1,7 @@
 introduction:
   title: Introduction
 releaseHistory: Release History
+breaks: Breaking Changes
 quickStart:
   title: Quick Start
 repository: Repository
