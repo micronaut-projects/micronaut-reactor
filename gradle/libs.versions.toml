@@ -11,6 +11,7 @@ micronaut-tracing = "5.0.0-SNAPSHOT"
 rxjava2 = "2.2.21"
 rxjava3 = "3.1.5"
 
+# When updated be sure to update the versions in the catalog of reactor-bom/build.gradle.kts
 managed-reactor-bom = "2020.0.24"
 
 [libraries]
@@ -20,5 +21,6 @@ micronaut-tracing = { module = "io.micronaut.tracing:micronaut-tracing-bom", ver
 micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-bom", version.ref = "micronaut-serde" }
 
 reactor-core = { module = "io.projectreactor:reactor-core" }
+
 rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava2" }
 rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava3" }
