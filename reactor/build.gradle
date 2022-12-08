@@ -5,7 +5,7 @@ plugins {
 dependencies {
     annotationProcessor(mn.micronaut.graal)
 
-    api(libs.reactor.core)
+    api(libs.managed.reactor.core)
 
     compileOnly(libs.rxjava2)
     compileOnly(libs.rxjava3)
