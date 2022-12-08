@@ -12,7 +12,7 @@ rxjava2 = "2.2.21"
 rxjava3 = "3.1.5"
 
 # When updated be sure to update the versions in the catalog of reactor-bom/build.gradle.kts
-managed-reactor-bom = "2020.0.24"
+managed-reactor-bom = "2022.0.0"
 
 [libraries]
 boms-reactor = { module = "io.projectreactor:reactor-bom", version.ref = "managed-reactor-bom" }
