@@ -11,11 +11,15 @@ micronaut-tracing = "5.0.0-SNAPSHOT"
 rxjava2 = "2.2.21"
 rxjava3 = "3.1.5"
 
-# When updated be sure to update the versions in the catalog of reactor-bom/build.gradle.kts
+# These two must be kept aligned as the reactor-bom doesn't have version properties
 managed-reactor-bom = "2022.0.0"
+managed-reactor = "3.5.0"
 
 [libraries]
 boms-reactor = { module = "io.projectreactor:reactor-bom", version.ref = "managed-reactor-bom" }
+
+managed-reactor-core = { module = "io.projectreactor:reactor-core", version.ref = "managed-reactor" }
+managed-reactor-test = { module = "io.projectreactor:reactor-test", version.ref = "managed-reactor" }
 
 micronaut-tracing = { module = "io.micronaut.tracing:micronaut-tracing-bom", version.ref = "micronaut-tracing" }
 micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-bom", version.ref = "micronaut-serde" }
