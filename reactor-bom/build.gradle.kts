@@ -3,7 +3,8 @@ plugins {
 }
 micronautBom {
     suppressions {
-        acceptedVersionRegressions.add("reactor-compat")
-        acceptedLibraryRegressions.add("reactor")
+        bomAuthorizedGroupIds.put("io.projectreactor:reactor-bom", setOf("org.reactivestreams"))
+        acceptedVersionRegressions.addAll("reactor", "reactor-compat")
+        acceptedLibraryRegressions.addAll("reactor", "reactor-core", "reactor-test")
     }
 }

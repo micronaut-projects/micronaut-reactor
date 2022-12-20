@@ -5,9 +5,9 @@ plugins {
 dependencies {
     annotationProcessor(mn.micronaut.graal)
 
-    api(libs.managed.reactor.core)
+    api(libs.reactor.core)
 
     compileOnly(libs.rxjava2)
     compileOnly(libs.rxjava3)
-    compileOnly(mn.micronaut.tracing.zipkin)    
+    compileOnly(mnTracing.micronaut.tracing.zipkin)
 }
