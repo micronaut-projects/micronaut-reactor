@@ -9,7 +9,7 @@ micronaut-serde = "2.0.0-SNAPSHOT"
 micronaut-tracing = "5.0.0-SNAPSHOT"
 
 rxjava2 = "2.2.21"
-rxjava3 = "3.1.5"
+rxjava3 = "3.1.6"
 
 managed-reactor-bom = "2020.0.24"
 
