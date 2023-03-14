@@ -5,9 +5,11 @@ plugins {
 dependencies {
     annotationProcessor(mn.micronaut.graal)
 
-    api(project(":reactor"))
+    api(projects.micronautReactor)
     api(mn.micronaut.http.client)
 
+    testImplementation(mnValidation.micronaut.validation.processor)
+    testImplementation(mnValidation.micronaut.validation)
     testImplementation(libs.rxjava2)
     testImplementation(libs.rxjava3)
     testImplementation(mn.micronaut.http.server.netty)

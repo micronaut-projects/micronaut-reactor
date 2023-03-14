@@ -12,7 +12,7 @@ import reactor.core.publisher.Flux
 import spock.lang.Specification
 import io.micronaut.serde.annotation.Serdeable
 import jakarta.inject.Inject
-import javax.validation.constraints.NotBlank
+import jakarta.validation.constraints.NotBlank
 
 @MicronautTest
 class FluxEventSpec extends Specification {
