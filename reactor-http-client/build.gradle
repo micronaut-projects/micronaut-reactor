@@ -8,7 +8,7 @@ dependencies {
     api(projects.micronautReactor)
     api(mn.micronaut.http.client)
 
-    testImplementation(mnValidation.micronaut.validation.processor)
+    testAnnotationProcessor(mnValidation.micronaut.validation.processor)
     testImplementation(mnValidation.micronaut.validation)
     testImplementation(libs.rxjava2)
     testImplementation(libs.rxjava3)
