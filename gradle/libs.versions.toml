@@ -12,7 +12,7 @@ micronaut-validation = "4.0.0-M4"
 rxjava2 = "2.2.21"
 rxjava3 = "3.1.6"
 
-managed-reactor-bom = "2020.0.24"
+managed-reactor-bom = "2020.0.32"
 
 [libraries]
 boms-reactor = { module = "io.projectreactor:reactor-bom", version.ref = "managed-reactor-bom" }
