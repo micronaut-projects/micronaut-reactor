@@ -1,5 +1,5 @@
 [versions]
-micronaut = "4.0.0-M4"
+micronaut = "4.0.0-M5"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.0.0-M3"
 groovy = "4.0.10"
@@ -7,7 +7,7 @@ spock = "2.3-groovy-4.0"
 
 micronaut-logging = "1.0.0-M1"
 micronaut-serde = "2.0.0-M6"
-micronaut-tracing = "5.0.0-SNAPSHOT"
+micronaut-tracing = "5.0.0-M2"
 micronaut-validation = "4.0.0-M7"
 
 rxjava2 = "2.2.21"
