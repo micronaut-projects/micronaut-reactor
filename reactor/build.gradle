@@ -9,7 +9,7 @@ dependencies {
 
     compileOnly(libs.rxjava2)
     compileOnly(libs.rxjava3)
-    compileOnly(mnTracing.micronaut.tracing.zipkin) {
+    compileOnly(mnTracing.micronaut.tracing.brave.http) {
         // fix a cyclic dependency
         exclude group: 'io.micronaut.reactor'
     }
