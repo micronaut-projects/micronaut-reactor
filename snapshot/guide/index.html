@@ -48,9 +48,11 @@
                                 
                                 <div class="toc-item" style="margin-left:0"><a href="#releaseHistory"><strong>2</strong><span>Release History</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#quickStart"><strong>3</strong><span>Quick Start</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#breaks"><strong>3</strong><span>Breaking Changes</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>4</strong><span>Repository</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#quickStart"><strong>4</strong><span>Quick Start</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>5</strong><span>Repository</span></a></div>
                                 
                             </div>
                         </div>
@@ -85,9 +87,11 @@
         
         <div class="toc-item" style="margin-left:0px" id="toc-item-releaseHistory"><a href="#releaseHistory"><strong>2</strong><span>Release History</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-quickStart"><a href="#quickStart"><strong>3</strong><span>Quick Start</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-breaks"><a href="#breaks"><strong>3</strong><span>Breaking Changes</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>4</strong><span>Repository</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-quickStart"><a href="#quickStart"><strong>4</strong><span>Quick Start</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>5</strong><span>Repository</span></a></div>
         
         </div>
     </div>
@@ -143,7 +147,29 @@ using Micronaut 1.x you do not need this module.</p>
 <p><a href="https://github.com/micronaut-projects/micronaut-reactor/releases">https://github.com/micronaut-projects/micronaut-reactor/releases</a></p>
 </div>
 
-<h1 id="quickStart"><a class="anchor" href="#quickStart"></a>3 Quick Start</h1>
+<h1 id="breaks"><a class="anchor" href="#breaks"></a>3 Breaking Changes</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-reactor/edit/master/src/main/docs/guide/breaks.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="sect1">
+<h2 id="_3_0_0">3.0.0</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_reactor_http_client">Reactor Http Client</h3>
+<div class="paragraph">
+<p>The Reactor Http client has changed to return <code>Mono&lt;HttpResponse&lt;O&gt;&gt;</code> instead of <code>Flux&lt;HttpResponse&lt;O&gt;&gt;</code>.
+This is semantically more correct as there can only be a single response per request.</p>
+</div>
+</div>
+</div>
+</div>
+
+<h1 id="quickStart"><a class="anchor" href="#quickStart"></a>4 Quick Start</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-reactor/edit/master/src/main/docs/guide/quickStart.adoc"'>
@@ -203,7 +229,7 @@ using Micronaut 1.x you do not need this module.</p>
 </div>
 </div>
 
-<h1 id="repository"><a class="anchor" href="#repository"></a>4 Repository</h1>
+<h1 id="repository"><a class="anchor" href="#repository"></a>5 Repository</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-reactor/edit/master/src/main/docs/guide/repository.adoc"'>
