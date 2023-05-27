@@ -22,7 +22,7 @@ class HttpGetSpec extends Specification{
 
     void "test mono empty list returns ok"() {
         when:
-        HttpResponse response = client.exchange(HttpRequest.GET("/get/emptyList/mono"), Argument.listOf(Book)).blockFirst()
+        HttpResponse response = client.exchange(HttpRequest.GET("/get/emptyList/mono"), Argument.listOf(Book)).block()
 
         then:
         noExceptionThrown()

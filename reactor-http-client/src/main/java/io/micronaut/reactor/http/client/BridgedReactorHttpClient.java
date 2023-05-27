@@ -23,7 +23,7 @@ import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.client.BlockingHttpClient;
 import io.micronaut.http.client.HttpClient;
-import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 /**
  * Internal bridge for the HTTP client.
@@ -50,58 +50,58 @@ class BridgedReactorHttpClient implements ReactorHttpClient {
     }
 
     @Override
-    public <I, O, E> Flux<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType, @NonNull Argument<E> errorType) {
-        return Flux.from(httpClient.exchange(request, bodyType, errorType));
+    public <I, O, E> Mono<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType, @NonNull Argument<E> errorType) {
+        return Mono.from(httpClient.exchange(request, bodyType, errorType));
     }
 
     @Override
-    public <I, O> Flux<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType) {
-        return Flux.from(httpClient.exchange(request, bodyType));
+    public <I, O> Mono<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType) {
+        return Mono.from(httpClient.exchange(request, bodyType));
     }
 
     @Override
-    public <I, O, E> Flux<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType, @NonNull Argument<E> errorType) {
-        return Flux.from(httpClient.retrieve(request, bodyType));
+    public <I, O, E> Mono<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType, @NonNull Argument<E> errorType) {
+        return Mono.from(httpClient.retrieve(request, bodyType));
     }
 
     @Override
-    public <I> Flux<HttpResponse<ByteBuffer>> exchange(@NonNull HttpRequest<I> request) {
-        return Flux.from(httpClient.exchange(request));
+    public <I> Mono<HttpResponse<ByteBuffer>> exchange(@NonNull HttpRequest<I> request) {
+        return Mono.from(httpClient.exchange(request));
     }
 
     @Override
-    public Flux<HttpResponse<ByteBuffer>> exchange(@NonNull String uri) {
-        return Flux.from(httpClient.exchange(uri));
+    public Mono<HttpResponse<ByteBuffer>> exchange(@NonNull String uri) {
+        return Mono.from(httpClient.exchange(uri));
     }
 
     @Override
-    public <O> Flux<HttpResponse<O>> exchange(@NonNull String uri, @NonNull Class<O> bodyType) {
-        return Flux.from(httpClient.exchange(uri, bodyType));
+    public <O> Mono<HttpResponse<O>> exchange(@NonNull String uri, @NonNull Class<O> bodyType) {
+        return Mono.from(httpClient.exchange(uri, bodyType));
     }
 
     @Override
-    public <I, O> Flux<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Class<O> bodyType) {
-        return Flux.from(httpClient.exchange(request, bodyType));
+    public <I, O> Mono<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Class<O> bodyType) {
+        return Mono.from(httpClient.exchange(request, bodyType));
     }
 
     @Override
-    public <I, O> Flux<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType) {
-        return Flux.from(httpClient.retrieve(request, bodyType));
+    public <I, O> Mono<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType) {
+        return Mono.from(httpClient.retrieve(request, bodyType));
     }
 
     @Override
-    public <I, O> Flux<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Class<O> bodyType) {
-        return Flux.from(httpClient.retrieve(request, bodyType));
+    public <I, O> Mono<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Class<O> bodyType) {
+        return Mono.from(httpClient.retrieve(request, bodyType));
     }
 
     @Override
-    public <I> Flux<String> retrieve(@NonNull HttpRequest<I> request) {
-        return Flux.from(httpClient.retrieve(request));
+    public <I> Mono<String> retrieve(@NonNull HttpRequest<I> request) {
+        return Mono.from(httpClient.retrieve(request));
     }
 
     @Override
-    public Flux<String> retrieve(@NonNull String uri) {
-        return Flux.from(httpClient.retrieve(uri));
+    public Mono<String> retrieve(@NonNull String uri) {
+        return Mono.from(httpClient.retrieve(uri));
     }
 
     @Override

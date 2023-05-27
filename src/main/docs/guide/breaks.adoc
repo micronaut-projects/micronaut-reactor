@@ -1,0 +1,6 @@
+== 3.0.0
+
+=== Reactor Http Client
+
+The Reactor Http client has changed to return `Mono<HttpResponse<O>>` instead of `Flux<HttpResponse<O>>`.
+This is semantically more correct as there can only be a single response per request.
