@@ -31,7 +31,7 @@ import reactor.core.scheduler.Schedulers;
  * @since 1.0
  */
 @Requires(sdk = Requires.Sdk.MICRONAUT, version = "2.0.0")
-@Requires(classes = {Flux.class, Schedulers.Factory.class})
+@Requires(classes = {Flux.class, Schedulers.Factory.class, PropagatedContext.class})
 @Context
 @Internal
 final class ReactorInstrumentation {
