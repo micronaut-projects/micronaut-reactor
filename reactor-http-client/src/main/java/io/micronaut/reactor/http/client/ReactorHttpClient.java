@@ -23,7 +23,7 @@ import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.client.HttpClient;
 import io.micronaut.http.client.HttpClientConfiguration;
-import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.net.URL;
 
@@ -36,45 +36,45 @@ import java.net.URL;
 public interface ReactorHttpClient extends HttpClient {
 
     @Override
-    default <I, O> Flux<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType) {
-        return Flux.from(HttpClient.super.exchange(request, bodyType));
+    default <I, O> Mono<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType) {
+        return Mono.from(HttpClient.super.exchange(request, bodyType));
     }
 
     @Override
-    <I, O, E> Flux<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType, @NonNull Argument<E> errorType);
+    <I, O, E> Mono<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType, @NonNull Argument<E> errorType);
 
     @Override
-    default <I, O, E> Flux<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType, @NonNull Argument<E> errorType) {
-        return Flux.from(HttpClient.super.retrieve(request, bodyType, errorType));
+    default <I, O, E> Mono<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType, @NonNull Argument<E> errorType) {
+        return Mono.from(HttpClient.super.retrieve(request, bodyType, errorType));
     }
 
     @Override
-    default <I> Flux<HttpResponse<ByteBuffer>> exchange(@NonNull HttpRequest<I> request) {
-        return Flux.from(HttpClient.super.exchange(request));
+    default <I> Mono<HttpResponse<ByteBuffer>> exchange(@NonNull HttpRequest<I> request) {
+        return Mono.from(HttpClient.super.exchange(request));
     }
 
     @Override
-    default Flux<HttpResponse<ByteBuffer>> exchange(@NonNull String uri) {
-        return Flux.from(HttpClient.super.exchange(uri));
+    default Mono<HttpResponse<ByteBuffer>> exchange(@NonNull String uri) {
+        return Mono.from(HttpClient.super.exchange(uri));
     }
 
     @Override
-    default <O> Flux<HttpResponse<O>> exchange(@NonNull String uri, @NonNull Class<O> bodyType) {
-        return Flux.from(HttpClient.super.exchange(uri, bodyType));
+    default <O> Mono<HttpResponse<O>> exchange(@NonNull String uri, @NonNull Class<O> bodyType) {
+        return Mono.from(HttpClient.super.exchange(uri, bodyType));
     }
 
     @Override
-    default <I, O> Flux<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Class<O> bodyType) {
-        return Flux.from(HttpClient.super.exchange(request, bodyType));
+    default <I, O> Mono<HttpResponse<O>> exchange(@NonNull HttpRequest<I> request, @NonNull Class<O> bodyType) {
+        return Mono.from(HttpClient.super.exchange(request, bodyType));
     }
 
     @Override
-    default <I, O> Flux<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType) {
-        return Flux.from(HttpClient.super.retrieve(request, bodyType));
+    default <I, O> Mono<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Argument<O> bodyType) {
+        return Mono.from(HttpClient.super.retrieve(request, bodyType));
     }
 
     @Override
-    default <I, O> Flux<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Class<O> bodyType) {
+    default <I, O> Mono<O> retrieve(@NonNull HttpRequest<I> request, @NonNull Class<O> bodyType) {
         return retrieve(
                 request,
                 Argument.of(bodyType),
@@ -83,7 +83,7 @@ public interface ReactorHttpClient extends HttpClient {
     }
 
     @Override
-    default <I> Flux<String> retrieve(@NonNull HttpRequest<I> request) {
+    default <I> Mono<String> retrieve(@NonNull HttpRequest<I> request) {
         return retrieve(
                 request,
                 Argument.STRING,
@@ -92,7 +92,7 @@ public interface ReactorHttpClient extends HttpClient {
     }
 
     @Override
-    default Flux<String> retrieve(@NonNull String uri) {
+    default Mono<String> retrieve(@NonNull String uri) {
         return retrieve(
                 HttpRequest.GET(uri),
                 Argument.STRING,

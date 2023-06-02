@@ -10,7 +10,7 @@ import io.micronaut.http.client.annotation.Client
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import reactor.core.publisher.Mono
 import spock.lang.Specification
-
+import io.micronaut.serde.annotation.Serdeable
 import jakarta.inject.Inject
 
 @MicronautTest
@@ -22,7 +22,7 @@ class HttpGetSpec extends Specification{
 
     void "test mono empty list returns ok"() {
         when:
-        HttpResponse response = client.exchange(HttpRequest.GET("/get/emptyList/mono"), Argument.listOf(Book)).blockFirst()
+        HttpResponse response = client.exchange(HttpRequest.GET("/get/emptyList/mono"), Argument.listOf(Book)).block()
 
         then:
         noExceptionThrown()
@@ -30,6 +30,7 @@ class HttpGetSpec extends Specification{
         response.body().isEmpty()
     }
 
+    @Serdeable
     static class Book {
         String title
     }

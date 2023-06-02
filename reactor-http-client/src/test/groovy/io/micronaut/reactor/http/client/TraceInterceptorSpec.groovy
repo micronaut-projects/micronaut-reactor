@@ -53,7 +53,7 @@ class TraceInterceptorSpec extends Specification {
             return Mono.fromCallable({
                 spanCustomizer.tag("foo", "bar")
                 return name
-            }).subscribeOn(Schedulers.elastic())
+            }).subscribeOn(Schedulers.boundedElastic())
         }
     }
 

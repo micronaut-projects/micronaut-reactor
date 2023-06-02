@@ -1,15 +1,31 @@
 [versions]
-managed-reactor = "3.4.23"
+micronaut = "4.0.0-M5"
+micronaut-docs = "2.0.0"
+micronaut-test = "4.0.0-M3"
+groovy = "4.0.10"
+spock = "2.3-groovy-4.0"
+
+micronaut-logging = "1.0.0-M2"
+micronaut-serde = "2.0.0-M8"
+micronaut-tracing = "5.0.0-M2"
+micronaut-validation = "4.0.0-M8"
 
 rxjava2 = "2.2.21"
-rxjava3 = "3.1.5"
+rxjava3 = "3.1.6"
+
+managed-reactor-bom = "2022.0.7"
 
 [libraries]
-managed-reactor-core = { module = "io.projectreactor:reactor-core", version.ref = "managed-reactor" }
-managed-reactor-test = { module = "io.projectreactor:reactor-test", version.ref = "managed-reactor" }
+# Core
+micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
 
-brave-instrumentation-http = { module = "io.zipkin.brave:brave-instrumentation-http" }
-brave-opentracing = { module = "io.opentracing.brave:brave-opentracing" }
-zipkin-reporter = { module = "io.zipkin.reporter2:zipkin-reporter" }
+micronaut-logging = { module = "io.micronaut.logging:micronaut-logging-bom", version.ref = "micronaut-logging" }
+boms-reactor = { module = "io.projectreactor:reactor-bom", version.ref = "managed-reactor-bom" }
+
+micronaut-tracing = { module = "io.micronaut.tracing:micronaut-tracing-bom", version.ref = "micronaut-tracing" }
+micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-bom", version.ref = "micronaut-serde" }
+micronaut-validation = { module = "io.micronaut.validation:micronaut-validation-bom", version.ref = "micronaut-validation" }
+
+reactor-core = { module = "io.projectreactor:reactor-core" }
 rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava2" }
 rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava3" }

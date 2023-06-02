@@ -24,7 +24,7 @@ class JsonBodyBindingSpec extends Specification {
         def json = '{"message":"foo"}'
         def response = reactorHttpClient.exchange(
                 HttpRequest.POST('/json/mono', json), String
-        ).blockFirst()
+        ).block()
 
         then:
         response.body() == "$json".toString()
