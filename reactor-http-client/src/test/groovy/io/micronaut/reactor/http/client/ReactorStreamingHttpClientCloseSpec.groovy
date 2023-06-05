@@ -1,6 +1,5 @@
 package io.micronaut.reactor.http.client
 
-import spock.lang.PendingFeature
 import spock.lang.Specification
 import spock.util.concurrent.PollingConditions
 

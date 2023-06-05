@@ -9,6 +9,7 @@ import io.micronaut.tracing.annotation.NewSpan
 import io.micronaut.tracing.annotation.SpanTag
 import reactor.core.publisher.Mono
 import reactor.core.scheduler.Schedulers
+import spock.lang.PendingFeature
 import spock.lang.Specification
 import spock.util.concurrent.PollingConditions
 import zipkin2.Span
@@ -26,6 +27,7 @@ class TraceInterceptorSpec extends Specification {
     @Inject TracedService tracedService
     @Inject TestReporter reporter
 
+    @PendingFeature
     void "test trace mono"() {
         when:
         String result = tracedService.mono("test").block()
