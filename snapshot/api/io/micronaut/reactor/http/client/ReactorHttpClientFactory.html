@@ -115,10 +115,10 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="ReactorStreamingHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorStreamingHttpClient</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#streamingHttpClient(io.micronaut.inject.InjectionPoint,io.micronaut.http.client.LoadBalancer,io.micronaut.http.client.HttpClientConfiguration,io.micronaut.context.BeanContext)" class="member-name-link">streamingHttpClient</a><wbr>(io.micronaut.inject.InjectionPoint&lt;?&gt;&nbsp;injectionPoint,
- io.micronaut.http.client.LoadBalancer&nbsp;loadBalancer,
- io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration,
- io.micronaut.context.BeanContext&nbsp;beanContext)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#streamingHttpClient(io.micronaut.inject.InjectionPoint,io.micronaut.http.client.LoadBalancer,io.micronaut.http.client.HttpClientConfiguration,io.micronaut.context.BeanContext)" class="member-name-link">streamingHttpClient</a><wbr>(@Nullable io.micronaut.inject.InjectionPoint&lt;?&gt;&nbsp;injectionPoint,
+ @Nullable io.micronaut.http.client.LoadBalancer&nbsp;loadBalancer,
+ @Nullable io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration,
+ @NonNull io.micronaut.context.BeanContext&nbsp;beanContext)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Injects a <a href="ReactorStreamingHttpClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorStreamingHttpClient</code></a> client at the given injection point.</div>
 </div>
@@ -164,13 +164,13 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="annotations">@Bean
 @Secondary
 </span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="ReactorStreamingHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorStreamingHttpClient</a></span>&nbsp;<span class="element-name">streamingHttpClient</span><wbr><span class="parameters">(@Nullable
- io.micronaut.inject.InjectionPoint&lt;?&gt;&nbsp;injectionPoint,
+ @Nullable io.micronaut.inject.InjectionPoint&lt;?&gt;&nbsp;injectionPoint,
  @Parameter @Nullable
- io.micronaut.http.client.LoadBalancer&nbsp;loadBalancer,
+ @Nullable io.micronaut.http.client.LoadBalancer&nbsp;loadBalancer,
  @Parameter @Nullable
- io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration,
+ @Nullable io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration,
  @NonNull
- io.micronaut.context.BeanContext&nbsp;beanContext)</span></div>
+ @NonNull io.micronaut.context.BeanContext&nbsp;beanContext)</span></div>
 <div class="block">Injects a <a href="ReactorStreamingHttpClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorStreamingHttpClient</code></a> client at the given injection point.</div>
 <dl class="notes">
 <dt>Parameters:</dt>

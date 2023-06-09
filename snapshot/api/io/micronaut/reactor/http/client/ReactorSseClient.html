@@ -103,37 +103,37 @@ extends io.micronaut.http.client.sse.SseClient</span></div>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client">ReactorSseClient</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#create(java.net.URL)" class="member-name-link">create</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static @NonNull <a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client">ReactorSseClient</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#create(java.net.URL)" class="member-name-link">create</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Create a new <a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorSseClient</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client">ReactorSseClient</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#create(java.net.URL,io.micronaut.http.client.HttpClientConfiguration)" class="member-name-link">create</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
- io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static @NonNull <a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client">ReactorSseClient</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#create(java.net.URL,io.micronaut.http.client.HttpClientConfiguration)" class="member-name-link">create</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
+ @NonNull io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Create a new <a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorSseClient</code></a> with the specified configuration.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>&lt;I&gt;&nbsp;reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;io.micronaut.core.io.buffer.ByteBuffer&lt;?&gt;&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#eventStream(io.micronaut.http.HttpRequest)" class="member-name-link">eventStream</a><wbr>(io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#eventStream(io.micronaut.http.HttpRequest)" class="member-name-link">eventStream</a><wbr>(@NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>&lt;I,<wbr>
 B&gt;&nbsp;reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;B&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#eventStream(io.micronaut.http.HttpRequest,io.micronaut.core.type.Argument)" class="member-name-link">eventStream</a><wbr>(io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
- io.micronaut.core.type.Argument&lt;B&gt;&nbsp;eventType)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#eventStream(io.micronaut.http.HttpRequest,io.micronaut.core.type.Argument)" class="member-name-link">eventStream</a><wbr>(@NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
+ @NonNull io.micronaut.core.type.Argument&lt;B&gt;&nbsp;eventType)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>&lt;I,<wbr>
 B&gt;&nbsp;reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;B&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#eventStream(io.micronaut.http.HttpRequest,java.lang.Class)" class="member-name-link">eventStream</a><wbr>(io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;B&gt;&nbsp;eventType)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#eventStream(io.micronaut.http.HttpRequest,java.lang.Class)" class="member-name-link">eventStream</a><wbr>(@NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
+ @NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;B&gt;&nbsp;eventType)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>&lt;B&gt;&nbsp;reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;B&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#eventStream(java.lang.String,io.micronaut.core.type.Argument)" class="member-name-link">eventStream</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri,
- io.micronaut.core.type.Argument&lt;B&gt;&nbsp;eventType)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#eventStream(java.lang.String,io.micronaut.core.type.Argument)" class="member-name-link">eventStream</a><wbr>(@NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri,
+ @NonNull io.micronaut.core.type.Argument&lt;B&gt;&nbsp;eventType)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>&lt;B&gt;&nbsp;reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;B&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#eventStream(java.lang.String,java.lang.Class)" class="member-name-link">eventStream</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;B&gt;&nbsp;eventType)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#eventStream(java.lang.String,java.lang.Class)" class="member-name-link">eventStream</a><wbr>(@NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri,
+ @NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;B&gt;&nbsp;eventType)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 </div>
 </div>
@@ -157,7 +157,7 @@ B&gt;&nbsp;reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;B&gt;&g
 <h3>eventStream</h3>
 <div class="member-signature"><span class="type-parameters">&lt;I&gt;</span>
 <span class="return-type">reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;io.micronaut.core.io.buffer.ByteBuffer&lt;?&gt;&gt;&gt;</span>&nbsp;<span class="element-name">eventStream</span><wbr><span class="parameters">(@NonNull
- io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request)</span></div>
+ @NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>eventStream</code>&nbsp;in interface&nbsp;<code>io.micronaut.http.client.sse.SseClient</code></dd>
@@ -170,9 +170,9 @@ B&gt;&nbsp;reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;B&gt;&g
 <div class="member-signature"><span class="type-parameters">&lt;I,<wbr>
 B&gt;</span>
 <span class="return-type">reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;B&gt;&gt;</span>&nbsp;<span class="element-name">eventStream</span><wbr><span class="parameters">(@NonNull
- io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
+ @NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
  @NonNull
- io.micronaut.core.type.Argument&lt;B&gt;&nbsp;eventType)</span></div>
+ @NonNull io.micronaut.core.type.Argument&lt;B&gt;&nbsp;eventType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>eventStream</code>&nbsp;in interface&nbsp;<code>io.micronaut.http.client.sse.SseClient</code></dd>
@@ -185,9 +185,9 @@ B&gt;</span>
 <div class="member-signature"><span class="type-parameters">&lt;I,<wbr>
 B&gt;</span>
 <span class="return-type">reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;B&gt;&gt;</span>&nbsp;<span class="element-name">eventStream</span><wbr><span class="parameters">(@NonNull
- io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
+ @NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
  @NonNull
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;B&gt;&nbsp;eventType)</span></div>
+ @NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;B&gt;&nbsp;eventType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>eventStream</code>&nbsp;in interface&nbsp;<code>io.micronaut.http.client.sse.SseClient</code></dd>
@@ -199,9 +199,9 @@ B&gt;</span>
 <h3>eventStream</h3>
 <div class="member-signature"><span class="type-parameters">&lt;B&gt;</span>
 <span class="return-type">reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;B&gt;&gt;</span>&nbsp;<span class="element-name">eventStream</span><wbr><span class="parameters">(@NonNull
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri,
+ @NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri,
  @NonNull
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;B&gt;&nbsp;eventType)</span></div>
+ @NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;B&gt;&nbsp;eventType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>eventStream</code>&nbsp;in interface&nbsp;<code>io.micronaut.http.client.sse.SseClient</code></dd>
@@ -213,9 +213,9 @@ B&gt;</span>
 <h3>eventStream</h3>
 <div class="member-signature"><span class="type-parameters">&lt;B&gt;</span>
 <span class="return-type">reactor.core.publisher.Flux&lt;io.micronaut.http.sse.Event&lt;B&gt;&gt;</span>&nbsp;<span class="element-name">eventStream</span><wbr><span class="parameters">(@NonNull
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri,
+ @NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri,
  @NonNull
- io.micronaut.core.type.Argument&lt;B&gt;&nbsp;eventType)</span></div>
+ @NonNull io.micronaut.core.type.Argument&lt;B&gt;&nbsp;eventType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>eventStream</code>&nbsp;in interface&nbsp;<code>io.micronaut.http.client.sse.SseClient</code></dd>
@@ -226,8 +226,8 @@ B&gt;</span>
 <section class="detail" id="create(java.net.URL)">
 <h3>create</h3>
 <div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client">ReactorSseClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</span></div>
+</span><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client">ReactorSseClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</span></div>
 <div class="block">Create a new <a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorSseClient</code></a>.
  Note that this method should only be used outside of the context of a Micronaut application.
  The returned <a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorSseClient</code></a> is not subject to dependency injection.
@@ -247,10 +247,10 @@ B&gt;</span>
 <section class="detail" id="create(java.net.URL,io.micronaut.http.client.HttpClientConfiguration)">
 <h3>create</h3>
 <div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client">ReactorSseClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
+</span><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client">ReactorSseClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
  @NonNull
- io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration)</span></div>
+ @NonNull io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration)</span></div>
 <div class="block">Create a new <a href="ReactorSseClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorSseClient</code></a> with the specified configuration. Note that this method should only be used
  outside of the context of an application. Within Micronaut use <code>Inject</code> to inject a client instead</div>
 <dl class="notes">

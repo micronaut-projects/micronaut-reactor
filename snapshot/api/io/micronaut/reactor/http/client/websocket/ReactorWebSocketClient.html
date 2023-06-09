@@ -130,14 +130,14 @@ extends io.micronaut.websocket.WebSocketClient</span></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#connect(java.lang.Class,java.util.Map)" class="member-name-link">connect</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;clientEndpointType,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;&nbsp;parameters)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"></div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket">ReactorWebSocketClient</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#create(java.net.URL)" class="member-name-link">create</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static @NonNull <a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket">ReactorWebSocketClient</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#create(java.net.URL)" class="member-name-link">create</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Create a new <a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket"><code>ReactorWebSocketClient</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket">ReactorWebSocketClient</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#create(java.net.URL,io.micronaut.http.client.HttpClientConfiguration)" class="member-name-link">create</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
- io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static @NonNull <a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket">ReactorWebSocketClient</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#create(java.net.URL,io.micronaut.http.client.HttpClientConfiguration)" class="member-name-link">create</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
+ @NonNull io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Create a new <a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket"><code>ReactorWebSocketClient</code></a> with the specified configuration.</div>
 </div>
@@ -210,8 +210,8 @@ extends io.micronaut.websocket.WebSocketClient</span></div>
 <section class="detail" id="create(java.net.URL)">
 <h3>create</h3>
 <div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket">ReactorWebSocketClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</span></div>
+</span><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket">ReactorWebSocketClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</span></div>
 <div class="block">Create a new <a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket"><code>ReactorWebSocketClient</code></a>.
  Note that this method should only be used outside of the context of a Micronaut application.
  The returned <a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket"><code>ReactorWebSocketClient</code></a> is not subject to dependency injection.
@@ -231,10 +231,10 @@ extends io.micronaut.websocket.WebSocketClient</span></div>
 <section class="detail" id="create(java.net.URL,io.micronaut.http.client.HttpClientConfiguration)">
 <h3>create</h3>
 <div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket">ReactorWebSocketClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
+</span><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket">ReactorWebSocketClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
  @NonNull
- io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration)</span></div>
+ @NonNull io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration)</span></div>
 <div class="block">Create a new <a href="ReactorWebSocketClient.html" title="interface in io.micronaut.reactor.http.client.websocket"><code>ReactorWebSocketClient</code></a> with the specified configuration. Note that this method should only be used
  outside of the context of an application. Within Micronaut use <code>Inject</code> to inject a client instead</div>
 <dl class="notes">
