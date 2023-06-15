@@ -5,8 +5,9 @@ plugins {
 dependencies {
     annotationProcessor(mn.micronaut.graal)
 
-    api(libs.reactor.core)
+    api libs.reactor.core
 
+    compileOnly libs.managed.micrometer.context.propagation
     compileOnly(libs.rxjava2)
     compileOnly(libs.rxjava3)
     compileOnly(mnTracing.micronaut.tracing.brave.http) {
