@@ -1,3 +1,4 @@
+io.micronaut.reactor.config
 io.micronaut.reactor.convert
 io.micronaut.reactor.http.client
 io.micronaut.reactor.http.client.proxy
