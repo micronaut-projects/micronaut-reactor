@@ -19,10 +19,12 @@ import io.micronaut.context.annotation.Context;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.core.annotation.Internal;
 import io.micronaut.core.propagation.PropagatedContext;
+import io.micronaut.reactor.config.ReactorConfiguration;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
+
+import java.util.Optional;
 
 /**
  * Instruments Reactor such that the thread factory used by Micronaut is used and instrumentations can be applied to the {@link java.util.concurrent.ScheduledExecutorService}.
@@ -30,21 +32,30 @@ import reactor.core.scheduler.Schedulers;
  * @author Graeme Rocher
  * @since 1.0
  */
-@Requires(sdk = Requires.Sdk.MICRONAUT, version = "2.0.0")
-@Requires(classes = {Flux.class, Schedulers.Factory.class, PropagatedContext.class})
+@Requires(classes = {Schedulers.Factory.class, PropagatedContext.class})
 @Context
 @Internal
 final class ReactorInstrumentation {
 
-    private static final String KEY = "MICRONAUT_CONTEXT_PROPAGATION";
+    static final String KEY = "MICRONAUT_CONTEXT_PROPAGATION";
+
+    private final boolean enableScheduleHookContextPropagation;
+
+    ReactorInstrumentation(ReactorConfiguration configuration) {
+        this.enableScheduleHookContextPropagation = Optional.ofNullable(configuration.enableScheduleHookContextPropagation()).orElse(true);
+    }
 
     @PostConstruct
     void init() {
-        Schedulers.onScheduleHook(KEY, PropagatedContext::wrapCurrent);
+        if (enableScheduleHookContextPropagation) {
+            Schedulers.onScheduleHook(KEY, PropagatedContext::wrapCurrent);
+        }
     }
 
     @PreDestroy
     void removeInstrumentation() {
-        Schedulers.resetOnScheduleHook(KEY);
+        if (enableScheduleHookContextPropagation) {
+            Schedulers.resetOnScheduleHook(KEY);
+        }
     }
 }

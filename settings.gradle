@@ -15,6 +15,9 @@ include 'reactor'
 include 'reactor-bom'
 include 'reactor-http-client'
 
+include 'tests:micrometer-propagation'
+include 'tests:simple-propagation'
+
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 micronautBuild {
@@ -24,4 +27,5 @@ micronautBuild {
     importMicronautCatalog("micronaut-logging")
     importMicronautCatalog("micronaut-serde")
     importMicronautCatalog("micronaut-validation")
+    importMicronautCatalog("micronaut-test")
 }
