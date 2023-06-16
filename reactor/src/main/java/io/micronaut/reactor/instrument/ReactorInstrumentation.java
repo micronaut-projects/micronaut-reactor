@@ -42,7 +42,7 @@ final class ReactorInstrumentation {
     private final boolean enableScheduleHookContextPropagation;
 
     ReactorInstrumentation(ReactorConfiguration configuration) {
-        this.enableScheduleHookContextPropagation = Optional.ofNullable(configuration.getEnableScheduleHookContextPropagation()).orElse(true);
+        this.enableScheduleHookContextPropagation = Optional.ofNullable(configuration.enableScheduleHookContextPropagation()).orElse(true);
     }
 
     @PostConstruct

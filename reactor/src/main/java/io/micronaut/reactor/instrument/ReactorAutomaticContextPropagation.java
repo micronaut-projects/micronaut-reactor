@@ -49,8 +49,8 @@ final class ReactorAutomaticContextPropagation {
     private final boolean enableScheduleHookContextPropagation;
 
     ReactorAutomaticContextPropagation(ReactorConfiguration configuration) {
-        this.enableAutomaticContextPropagation = Optional.ofNullable(configuration.getEnableAutomaticContextPropagation()).orElse(true);
-        this.enableScheduleHookContextPropagation = Optional.ofNullable(configuration.getEnableScheduleHookContextPropagation()).orElse(false);
+        this.enableAutomaticContextPropagation = Optional.ofNullable(configuration.enableAutomaticContextPropagation()).orElse(true);
+        this.enableScheduleHookContextPropagation = Optional.ofNullable(configuration.enableScheduleHookContextPropagation()).orElse(false);
     }
 
     @PostConstruct
