@@ -35,11 +35,9 @@ class MyTracingInterceptor implements MethodInterceptor<Object, Object> {
             PropagatedContext propagatedContext = PropagatedContext.get();
             InterceptedMethod interceptedMethod = InterceptedMethod.of(context, ConversionService.SHARED);
             return switch (interceptedMethod.resultType()) {
-                case PUBLISHER -> captureContext(
-                    interceptedMethod.handleResult(
-                        captureContext(interceptedMethod.interceptResultAsPublisher(), propagatedContext)
-                    ), propagatedContext
-                );
+                case PUBLISHER ->
+                    // Bypass InterceptedMethod logic for testing
+                    captureContext(context.proceed(), propagatedContext);
                 case SYNCHRONOUS, COMPLETION_STAGE -> interceptedMethod.handleResult(
                     interceptedMethod.interceptResult()
                 );
