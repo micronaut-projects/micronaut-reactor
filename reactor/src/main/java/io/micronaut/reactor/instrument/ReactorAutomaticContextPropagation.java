@@ -21,6 +21,7 @@ import io.micronaut.context.annotation.Context;
 import io.micronaut.context.annotation.Replaces;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.core.annotation.Internal;
+import io.micronaut.core.async.propagation.ReactorPropagation;
 import io.micronaut.core.propagation.PropagatedContext;
 import io.micronaut.reactor.config.ReactorConfiguration;
 import jakarta.annotation.PostConstruct;
@@ -81,8 +82,7 @@ final class ReactorAutomaticContextPropagation {
 
         @Override
         public String key() {
-            // TODO: replace with ReactorPropagation.PROPAGATED_CONTEXT_REACTOR_CONTEXT_VIEW_KEY
-            return "micronaut.propagated.context";
+            return ReactorPropagation.PROPAGATED_CONTEXT_REACTOR_CONTEXT_VIEW_KEY;
         }
 
         @Override
@@ -102,7 +102,7 @@ final class ReactorAutomaticContextPropagation {
 
         @Override
         public void setValue() {
-            // Do nothing
+            setValue(PropagatedContext.empty());
         }
 
         @Override
@@ -118,6 +118,13 @@ final class ReactorAutomaticContextPropagation {
 
         @Override
         public void restore() {
+            ArrayDeque<PropagatedContext.Scope> scopes = localScopes.get();
+            if (scopes != null && !scopes.isEmpty()) {
+                scopes.pop().close();
+                if (scopes.isEmpty()) {
+                    localScopes.remove();
+                }
+            }
         }
     }
 }
