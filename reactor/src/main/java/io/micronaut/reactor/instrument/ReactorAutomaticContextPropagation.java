@@ -102,7 +102,7 @@ final class ReactorAutomaticContextPropagation {
 
         @Override
         public void setValue() {
-            setValue(PropagatedContext.getOrEmpty());
+            setValue(PropagatedContext.empty());
         }
 
         @Override
