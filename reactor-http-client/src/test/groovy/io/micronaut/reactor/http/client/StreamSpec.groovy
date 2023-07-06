@@ -34,14 +34,14 @@ class StreamSpec extends Specification {
     @Client('/stream')
     static interface StreamEchoClient {
         @Get(value = "/echo{?n,data}", consumes = MediaType.TEXT_PLAIN)
-        Flux<byte[]> echoAsByteArrays(@QueryValue @Nullable int n, @QueryValue @Nullable String data);
+        Flux<byte[]> echoAsByteArrays(@QueryValue @Nullable Integer n, @QueryValue @Nullable String data);
     }
 
     @Controller('/stream')
     static class StreamEchoController {
 
         @Get(value = "/echo{?n,data}", produces = MediaType.TEXT_PLAIN)
-        Flux<byte[]> stream(@QueryValue @Nullable int n, @QueryValue @Nullable String data) {
+        Flux<byte[]> stream(@QueryValue @Nullable Integer n, @QueryValue @Nullable String data) {
             return Flux.just(data.getBytes(StandardCharsets.UTF_8)).repeat(n - 1)
         }
 
