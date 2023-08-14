@@ -17,7 +17,7 @@ rxjava3 = "3.1.6"
 managed-reactor-bom = "2022.0.8"
 managed-micrometer-context-propagation = "1.0.4"
 
-micronaut-gradle-plugin = "4.0.1"
+micronaut-gradle-plugin = "4.0.2"
 
 [libraries]
 # Core
