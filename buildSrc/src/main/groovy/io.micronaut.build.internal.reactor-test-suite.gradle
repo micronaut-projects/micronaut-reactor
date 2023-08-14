@@ -5,7 +5,6 @@ plugins {
     id 'io.micronaut.minimal.application'
 }
 micronaut {
-    // Do not build examples against M1 since the platform is not released
     version libs.versions.micronaut.platform.get()
 }
 
