@@ -24,7 +24,6 @@ micronautBuild {
     useStandardizedProjectNames = true
     importMicronautCatalog()
     importMicronautCatalog("micronaut-tracing")
-    importMicronautCatalog("micronaut-logging")
     importMicronautCatalog("micronaut-serde")
     importMicronautCatalog("micronaut-validation")
     importMicronautCatalog("micronaut-test")
