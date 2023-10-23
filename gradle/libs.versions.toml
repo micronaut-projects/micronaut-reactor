@@ -1,29 +1,28 @@
 [versions]
-micronaut = "4.0.3"
+micronaut = "4.0.6"
 micronaut-docs = "2.0.0"
-micronaut-test = "4.0.1"
-groovy = "4.0.13"
+micronaut-test = "4.0.2"
+groovy = "4.0.15"
 spock = "2.3-groovy-4.0"
 
 micronaut-logging = "1.0.0"
-micronaut-serde = "2.0.1"
-micronaut-tracing = "5.0.1"
-micronaut-validation = "4.0.1"
-micronaut-platform = "4.0.3"
+micronaut-serde = "2.0.2"
+micronaut-tracing = "5.0.2"
+micronaut-validation = "4.0.3"
+micronaut-platform = "4.0.6"
 
 rxjava2 = "2.2.21"
-rxjava3 = "3.1.6"
+rxjava3 = "3.1.8"
 
-managed-reactor-bom = "2022.0.9"
-managed-micrometer-context-propagation = "1.0.4"
+managed-reactor-bom = "2022.0.12"
+managed-micrometer-context-propagation = "1.0.6"
 
-micronaut-gradle-plugin = "4.0.2"
+micronaut-gradle-plugin = "4.0.4"
 
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
 
-micronaut-logging = { module = "io.micronaut.logging:micronaut-logging-bom", version.ref = "micronaut-logging" }
 boms-reactor = { module = "io.projectreactor:reactor-bom", version.ref = "managed-reactor-bom" }
 
 micronaut-tracing = { module = "io.micronaut.tracing:micronaut-tracing-bom", version.ref = "micronaut-tracing" }
