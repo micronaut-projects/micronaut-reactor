@@ -17,4 +17,5 @@ dependencies {
     testImplementation(mnSerde.micronaut.serde.jackson)
     testImplementation(mn.micronaut.retry)
     testRuntimeOnly(mnLogging.logback.classic)
+    testRuntimeOnly(libs.managed.micrometer.context.propagation)
 }
