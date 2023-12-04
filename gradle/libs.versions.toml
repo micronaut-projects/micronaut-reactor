@@ -1,31 +1,39 @@
 [versions]
-micronaut = "4.0.0-M6"
+micronaut = "4.2.0"
 micronaut-docs = "2.0.0"
-micronaut-test = "4.0.0-M5"
-groovy = "4.0.10"
+micronaut-test = "4.1.0"
+groovy = "4.0.13"
 spock = "2.3-groovy-4.0"
 
-micronaut-logging = "1.0.0-M3"
-micronaut-serde = "2.0.0-M8"
-micronaut-tracing = "5.0.0-M3"
-micronaut-validation = "4.0.0-M9"
+micronaut-logging = "1.1.2"
+micronaut-serde = "2.4.0"
+micronaut-tracing = "6.0.0"
+micronaut-validation = "4.2.0"
+micronaut-platform = "4.0.3"
 
 rxjava2 = "2.2.21"
-rxjava3 = "3.1.6"
+rxjava3 = "3.1.8"
 
-managed-reactor-bom = "2022.0.7"
+managed-reactor-bom = "2023.0.0"
+managed-micrometer-context-propagation = "1.1.0"
+
+micronaut-gradle-plugin = "4.2.0"
 
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
 
-micronaut-logging = { module = "io.micronaut.logging:micronaut-logging-bom", version.ref = "micronaut-logging" }
 boms-reactor = { module = "io.projectreactor:reactor-bom", version.ref = "managed-reactor-bom" }
 
 micronaut-tracing = { module = "io.micronaut.tracing:micronaut-tracing-bom", version.ref = "micronaut-tracing" }
 micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-bom", version.ref = "micronaut-serde" }
 micronaut-validation = { module = "io.micronaut.validation:micronaut-validation-bom", version.ref = "micronaut-validation" }
+micronaut-test = { module = "io.micronaut.test:micronaut-test-bom", version.ref = "micronaut-test" }
 
 reactor-core = { module = "io.projectreactor:reactor-core" }
 rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava2" }
 rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava3" }
+
+managed-micrometer-context-propagation = { module = "io.micrometer:context-propagation", version.ref = "managed-micrometer-context-propagation" }
+
+gradle-micronaut = { module = "io.micronaut.gradle:micronaut-gradle-plugin", version.ref = "micronaut-gradle-plugin" }

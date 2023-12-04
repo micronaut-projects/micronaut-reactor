@@ -1,0 +1,17 @@
+plugins {
+    id 'io.micronaut.build.internal.reactor-base'
+    id 'java'
+    id 'groovy'
+    id 'io.micronaut.minimal.application'
+}
+micronaut {
+    version libs.versions.micronaut.platform.get()
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
+
+configurations.configureEach {
+    resolutionStrategy.preferProjectModules()
+}
