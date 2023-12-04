@@ -4,5 +4,6 @@ releaseHistory: Release History
 breaks: Breaking Changes
 quickStart:
   title: Quick Start
+contextPropagation: Reactor context propagation
 repository: Repository
 
