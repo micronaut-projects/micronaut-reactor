@@ -1,0 +1,3 @@
+When using Micronaut Reactor within a reactive chain, add the following dependency to handle the https://docs.micronaut.io/latest/guide/#reactorContextPropagation[Reactor Context Propagation].
+
+dependency:context-propagation[groupId=io.micrometer]
