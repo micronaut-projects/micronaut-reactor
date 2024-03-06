@@ -1,4 +1,5 @@
 plugins {
+    id 'groovy'
     id 'io.micronaut.build.internal.reactor-test-suite'
 }
 
@@ -11,7 +12,6 @@ dependencies {
 
     testImplementation mn.micronaut.http.client
     testImplementation mn.micronaut.http.server.netty
-    testImplementation mn.micronaut.inject.java.test
     testImplementation mn.micronaut.jackson.databind
 
     testImplementation mnTest.micronaut.test.spock
