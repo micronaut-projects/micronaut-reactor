@@ -25,7 +25,7 @@ import io.micronaut.core.annotation.Nullable;
  * @param enableAutomaticContextPropagation    Enables thread-local propagation in the Reactor context (Only available when if Micrometer context propagation is on the classpath)
  * @param enableScheduleHookContextPropagation Enables propagation by instrumenting the schedule hook and capturing {@link io.micronaut.core.propagation.PropagatedContext} when the job is scheduled.
  * @author Denis Stepanov
- * @see 3.0.0
+ * @since 3.0.0
  */
 @Internal
 @ConfigurationProperties("reactor")
