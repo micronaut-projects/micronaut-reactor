@@ -1,7 +1,7 @@
 [versions]
-micronaut = "4.6.6"
+micronaut = "4.7.0"
 micronaut-docs = "2.0.0"
-micronaut-test = "4.4.0"
+micronaut-test = "4.5.0"
 groovy = "4.0.13"
 spock = "2.3-groovy-4.0"
 
@@ -15,7 +15,7 @@ rxjava2 = "2.2.21"
 rxjava3 = "3.1.9"
 
 managed-reactor-bom = "2023.0.10"
-managed-micrometer-context-propagation = "1.1.1"
+managed-micrometer-context-propagation = "1.1.2"
 
 micronaut-gradle-plugin = "4.4.3"
 
