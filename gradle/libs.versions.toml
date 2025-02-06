@@ -2,7 +2,7 @@
 micronaut = "4.8.0"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.6.2"
-groovy = "4.0.13"
+groovy = "4.0.25"
 spock = "2.3-groovy-4.0"
 
 micronaut-logging = "1.3.0"
