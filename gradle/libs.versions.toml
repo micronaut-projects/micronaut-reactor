@@ -6,7 +6,7 @@ groovy = "4.0.25"
 spock = "2.3-groovy-4.0"
 
 micronaut-logging = "1.6.1"
-micronaut-serde = "2.14.1"
+micronaut-serde = "2.15.0"
 micronaut-tracing = "7.0.0"
 micronaut-validation = "4.9.0"
 micronaut-platform = "4.8.3"
