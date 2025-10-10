@@ -18,7 +18,6 @@ managed-reactor-bom = "2024.0.10"
 managed-micrometer-context-propagation = "1.1.3"
 
 micronaut-gradle-plugin = "4.5.4"
-sonatype-scan = "3.1.4"
 
 [libraries]
 # Core
@@ -38,4 +37,3 @@ rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava3" }
 managed-micrometer-context-propagation = { module = "io.micrometer:context-propagation", version.ref = "managed-micrometer-context-propagation" }
 
 gradle-micronaut = { module = "io.micronaut.gradle:micronaut-gradle-plugin", version.ref = "micronaut-gradle-plugin" }
-sonatype-scan = { module = "org.sonatype.gradle.plugins:scan-gradle-plugin", version.ref = "sonatype-scan" }
