@@ -16,3 +16,7 @@ configurations.configureEach {
 dependencies {
     testRuntimeOnly(mnTest.junit.platform.suite)
 }
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
