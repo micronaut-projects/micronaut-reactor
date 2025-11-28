@@ -1,6 +1,5 @@
 [versions]
 micronaut = "4.10.9"
-micronaut-test = "4.10.2"
 micronaut-serde = "2.16.2"
 micronaut-tracing = "7.2.0"
 micronaut-validation = "4.12.0"
@@ -23,7 +22,6 @@ boms-reactor = { module = "io.projectreactor:reactor-bom", version.ref = "manage
 micronaut-tracing = { module = "io.micronaut.tracing:micronaut-tracing-bom", version.ref = "micronaut-tracing" }
 micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-bom", version.ref = "micronaut-serde" }
 micronaut-validation = { module = "io.micronaut.validation:micronaut-validation-bom", version.ref = "micronaut-validation" }
-micronaut-test = { module = "io.micronaut.test:micronaut-test-bom", version.ref = "micronaut-test" }
 
 reactor-core = { module = "io.projectreactor:reactor-core" }
 rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava2" }
