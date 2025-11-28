@@ -1,5 +1,5 @@
 [versions]
-micronaut = "4.10.9"
+micronaut = "5.0.0-M1"
 micronaut-serde = "2.16.2"
 micronaut-tracing = "7.2.0"
 micronaut-validation = "4.12.0"
