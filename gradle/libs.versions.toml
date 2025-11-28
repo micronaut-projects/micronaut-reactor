@@ -1,8 +1,6 @@
 [versions]
 micronaut = "4.10.9"
 micronaut-test = "4.10.2"
-spock = "2.3-groovy-4.0"
-
 micronaut-logging = "1.7.1"
 micronaut-serde = "2.16.2"
 micronaut-tracing = "7.2.0"
