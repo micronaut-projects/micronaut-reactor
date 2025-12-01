@@ -20,11 +20,11 @@ import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Factory;
 import io.micronaut.context.annotation.Parameter;
 import io.micronaut.context.annotation.Secondary;
-import io.micronaut.core.annotation.Nullable;
 import io.micronaut.http.client.HttpClientConfiguration;
 import io.micronaut.http.client.LoadBalancer;
 import io.micronaut.inject.InjectionPoint;
 import io.micronaut.websocket.WebSocketClientRegistry;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Factory for creating a {@link ReactorWebSocketClient}.
