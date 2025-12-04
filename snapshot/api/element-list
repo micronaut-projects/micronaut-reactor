@@ -4,3 +4,4 @@ io.micronaut.reactor.http.client
 io.micronaut.reactor.http.client.proxy
 io.micronaut.reactor.http.client.sse
 io.micronaut.reactor.http.client.websocket
+io.micronaut.reactor.info
