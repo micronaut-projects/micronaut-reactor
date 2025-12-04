@@ -8,7 +8,7 @@ micronaut-platform = "4.10.0"
 rxjava2 = "2.2.21"
 rxjava3 = "3.1.12"
 
-managed-reactor-bom = "2024.0.12"
+managed-reactor-bom = "2025.0.0"
 managed-micrometer-context-propagation = "1.2.0"
 
 micronaut-gradle-plugin = "4.6.1"

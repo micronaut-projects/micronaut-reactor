@@ -15,8 +15,6 @@
  */
 package io.micronaut.reactor.http.client;
 
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
 import io.micronaut.core.io.buffer.ByteBuffer;
 import io.micronaut.core.type.Argument;
 import io.micronaut.http.HttpRequest;
@@ -24,6 +22,8 @@ import io.micronaut.http.client.HttpClientConfiguration;
 import io.micronaut.http.client.sse.SseClient;
 import io.micronaut.http.sse.Event;
 import io.micronaut.reactor.http.client.sse.BridgedReactorSseClient;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import reactor.core.publisher.Flux;
 
 import java.net.URL;

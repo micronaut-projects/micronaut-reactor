@@ -15,11 +15,11 @@
  */
 package io.micronaut.reactor.http.client.websocket;
 
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
 import io.micronaut.http.MutableHttpRequest;
 import io.micronaut.http.client.HttpClientConfiguration;
 import io.micronaut.websocket.WebSocketClient;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import reactor.core.publisher.Flux;
 
 import java.net.URI;

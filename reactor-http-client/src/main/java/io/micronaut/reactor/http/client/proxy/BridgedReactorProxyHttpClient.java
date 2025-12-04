@@ -16,8 +16,8 @@
 package io.micronaut.reactor.http.client.proxy;
 
 import io.micronaut.core.annotation.Internal;
-import org.jspecify.annotations.NonNull;
 import io.micronaut.http.HttpRequest;
+import org.jspecify.annotations.NonNull;
 import io.micronaut.http.MutableHttpResponse;
 import io.micronaut.http.client.ProxyHttpClient;
 import reactor.core.publisher.Flux;
