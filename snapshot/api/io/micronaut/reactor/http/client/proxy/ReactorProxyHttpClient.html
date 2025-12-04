@@ -147,8 +147,7 @@ extends io.micronaut.http.client.ProxyHttpClient</span></div>
 <li>
 <section class="detail" id="proxy(io.micronaut.http.HttpRequest)">
 <h3>proxy</h3>
-<div class="member-signature"><span class="return-type">reactor.core.publisher.Flux&lt;io.micronaut.http.MutableHttpResponse&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">proxy</span><wbr><span class="parameters">(@NonNull
- @NonNull io.micronaut.http.HttpRequest&lt;?&gt;&nbsp;request)</span></div>
+<div class="member-signature"><span class="return-type">reactor.core.publisher.Flux&lt;io.micronaut.http.MutableHttpResponse&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">proxy</span><wbr><span class="parameters">(@NonNull io.micronaut.http.HttpRequest&lt;?&gt;&nbsp;request)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>proxy</code>&nbsp;in interface&nbsp;<code>io.micronaut.http.client.ProxyHttpClient</code></dd>
@@ -158,9 +157,7 @@ extends io.micronaut.http.client.ProxyHttpClient</span></div>
 <li>
 <section class="detail" id="create(java.net.URL)">
 <h3>create</h3>
-<div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorProxyHttpClient.html" title="interface in io.micronaut.reactor.http.client.proxy">ReactorProxyHttpClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
- @Nullable <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorProxyHttpClient.html" title="interface in io.micronaut.reactor.http.client.proxy">ReactorProxyHttpClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</span></div>
 <div class="block">Create a new <code>ProxyHttpClient</code>.
  Note that this method should only be used outside of the context of a Micronaut application.
  The returned <code>ProxyHttpClient</code> is not subject to dependency injection.
@@ -177,10 +174,7 @@ extends io.micronaut.http.client.ProxyHttpClient</span></div>
 <li>
 <section class="detail" id="create(java.net.URL,io.micronaut.http.client.HttpClientConfiguration)">
 <h3>create</h3>
-<div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorProxyHttpClient.html" title="interface in io.micronaut.reactor.http.client.proxy">ReactorProxyHttpClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
- @Nullable <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
- @NonNull
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorProxyHttpClient.html" title="interface in io.micronaut.reactor.http.client.proxy">ReactorProxyHttpClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
  @NonNull io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration)</span></div>
 <div class="block">Create a new <code>ProxyHttpClient</code> with the specified configuration. Note that this method should only be used
  outside of the context of an application. Within Micronaut use <code>Inject</code> to inject a client instead</div>

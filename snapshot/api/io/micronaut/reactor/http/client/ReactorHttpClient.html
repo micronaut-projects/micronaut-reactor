@@ -212,9 +212,7 @@ O&gt;&nbsp;reactor.core.publisher.Mono<wbr>&lt;O&gt;</code></div>
 <h3>exchange</h3>
 <div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;I,<wbr>
 O&gt;</span>
-<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;O&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull
- @NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
- @NonNull
+<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;O&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
  @NonNull io.micronaut.core.type.Argument&lt;O&gt;&nbsp;bodyType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -228,11 +226,8 @@ O&gt;</span>
 <div class="member-signature"><span class="type-parameters">&lt;I,<wbr>
 O,<wbr>
 E&gt;</span>
-<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;O&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull
- @NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
- @NonNull
+<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;O&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
  @NonNull io.micronaut.core.type.Argument&lt;O&gt;&nbsp;bodyType,
- @NonNull
  @NonNull io.micronaut.core.type.Argument&lt;E&gt;&nbsp;errorType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -245,11 +240,8 @@ E&gt;</span>
 <h3>retrieve</h3>
 <div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;I,<wbr>
 O,<wbr>
-E&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;</span>&nbsp;<span class="element-name">retrieve</span><wbr><span class="parameters">(@NonNull
- @NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
- @NonNull
+E&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;</span>&nbsp;<span class="element-name">retrieve</span><wbr><span class="parameters">(@NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
  @NonNull io.micronaut.core.type.Argument&lt;O&gt;&nbsp;bodyType,
- @NonNull
  @NonNull io.micronaut.core.type.Argument&lt;E&gt;&nbsp;errorType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -261,8 +253,7 @@ E&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;
 <section class="detail" id="exchange(io.micronaut.http.HttpRequest)">
 <h3>exchange</h3>
 <div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;I&gt;</span>
-<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;io.micronaut.core.io.buffer.ByteBuffer&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull
- @NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request)</span></div>
+<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;io.micronaut.core.io.buffer.ByteBuffer&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>exchange</code>&nbsp;in interface&nbsp;<code>io.micronaut.http.client.HttpClient</code></dd>
@@ -272,8 +263,7 @@ E&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;
 <li>
 <section class="detail" id="exchange(java.lang.String)">
 <h3>exchange</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;io.micronaut.core.io.buffer.ByteBuffer&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull
- @NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri)</span></div>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;io.micronaut.core.io.buffer.ByteBuffer&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>exchange</code>&nbsp;in interface&nbsp;<code>io.micronaut.http.client.HttpClient</code></dd>
@@ -284,9 +274,7 @@ E&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;
 <section class="detail" id="exchange(java.lang.String,java.lang.Class)">
 <h3>exchange</h3>
 <div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;O&gt;</span>
-<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;O&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull
- @NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri,
- @NonNull
+<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;O&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri,
  @NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;O&gt;&nbsp;bodyType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -299,9 +287,7 @@ E&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;
 <h3>exchange</h3>
 <div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;I,<wbr>
 O&gt;</span>
-<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;O&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull
- @NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
- @NonNull
+<span class="return-type">reactor.core.publisher.Mono&lt;io.micronaut.http.HttpResponse&lt;O&gt;&gt;</span>&nbsp;<span class="element-name">exchange</span><wbr><span class="parameters">(@NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
  @NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;O&gt;&nbsp;bodyType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -313,9 +299,7 @@ O&gt;</span>
 <section class="detail" id="retrieve(io.micronaut.http.HttpRequest,io.micronaut.core.type.Argument)">
 <h3>retrieve</h3>
 <div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;I,<wbr>
-O&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;</span>&nbsp;<span class="element-name">retrieve</span><wbr><span class="parameters">(@NonNull
- @NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
- @NonNull
+O&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;</span>&nbsp;<span class="element-name">retrieve</span><wbr><span class="parameters">(@NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
  @NonNull io.micronaut.core.type.Argument&lt;O&gt;&nbsp;bodyType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -327,9 +311,7 @@ O&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;
 <section class="detail" id="retrieve(io.micronaut.http.HttpRequest,java.lang.Class)">
 <h3>retrieve</h3>
 <div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;I,<wbr>
-O&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;</span>&nbsp;<span class="element-name">retrieve</span><wbr><span class="parameters">(@NonNull
- @NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
- @NonNull
+O&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;</span>&nbsp;<span class="element-name">retrieve</span><wbr><span class="parameters">(@NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request,
  @NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;O&gt;&nbsp;bodyType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -340,8 +322,7 @@ O&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;
 <li>
 <section class="detail" id="retrieve(io.micronaut.http.HttpRequest)">
 <h3>retrieve</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;I&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">retrieve</span><wbr><span class="parameters">(@NonNull
- @NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request)</span></div>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;I&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">retrieve</span><wbr><span class="parameters">(@NonNull io.micronaut.http.HttpRequest&lt;I&gt;&nbsp;request)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>retrieve</code>&nbsp;in interface&nbsp;<code>io.micronaut.http.client.HttpClient</code></dd>
@@ -351,8 +332,7 @@ O&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;
 <li>
 <section class="detail" id="retrieve(java.lang.String)">
 <h3>retrieve</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">retrieve</span><wbr><span class="parameters">(@NonNull
- @NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri)</span></div>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">retrieve</span><wbr><span class="parameters">(@NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uri)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>retrieve</code>&nbsp;in interface&nbsp;<code>io.micronaut.http.client.HttpClient</code></dd>
@@ -362,9 +342,7 @@ O&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;
 <li>
 <section class="detail" id="create(java.net.URL)">
 <h3>create</h3>
-<div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorHttpClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
- @Nullable <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorHttpClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</span></div>
 <div class="block">Create a new <a href="ReactorHttpClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorHttpClient</code></a>.
  Note that this method should only be used outside of the context of a Micronaut application.
  The returned <a href="ReactorHttpClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorHttpClient</code></a> is not subject to dependency injection.
@@ -383,10 +361,7 @@ O&gt;</span>&nbsp;<span class="return-type">reactor.core.publisher.Mono&lt;O&gt;
 <li>
 <section class="detail" id="create(java.net.URL,io.micronaut.http.client.HttpClientConfiguration)">
 <h3>create</h3>
-<div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorHttpClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable
- @Nullable <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
- @NonNull
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">@NonNull <a href="ReactorHttpClient.html" title="interface in io.micronaut.reactor.http.client">ReactorHttpClient</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url,
  @NonNull io.micronaut.http.client.HttpClientConfiguration&nbsp;configuration)</span></div>
 <div class="block">Create a new <a href="ReactorHttpClient.html" title="interface in io.micronaut.reactor.http.client"><code>ReactorHttpClient</code></a> with the specified configuration. Note that this method should only be used
  outside of the context of an application. Within Micronaut use <code>Inject</code> to inject a client instead</div>
