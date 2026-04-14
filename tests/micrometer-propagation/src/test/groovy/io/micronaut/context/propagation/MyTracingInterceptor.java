@@ -9,7 +9,7 @@ import io.micronaut.core.convert.ConversionService;
 import io.micronaut.core.propagation.PropagatedContext;
 import io.micronaut.core.propagation.PropagatedContextElement;
 import jakarta.inject.Singleton;
-import org.reactivestreams.Publisher;
+import org.jspecify.annotations.Nullable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -29,20 +29,21 @@ class MyTracingInterceptor implements MethodInterceptor<Object, Object> {
     public Object intercept(MethodInvocationContext<Object, Object> context) {
         Trace trace = new Trace();
         traces.add(trace);
-        try (PropagatedContext.Scope ignore = PropagatedContext.getOrEmpty()
-            .plus(new TracePropagatedContext(trace))
-            .propagate()) {
-            PropagatedContext propagatedContext = PropagatedContext.get();
-            InterceptedMethod interceptedMethod = InterceptedMethod.of(context, ConversionService.SHARED);
-            return switch (interceptedMethod.resultType()) {
-                case PUBLISHER ->
-                    // Bypass InterceptedMethod logic for testing
-                    captureContext(context.proceed(), propagatedContext);
-                case SYNCHRONOUS, COMPLETION_STAGE -> interceptedMethod.handleResult(
-                    interceptedMethod.interceptResult()
-                );
-            };
-        }
+        PropagatedContext propagatedContext = PropagatedContext.getOrEmpty()
+            .plus(new TracePropagatedContext(trace));
+        return propagatedContext.propagate(() -> interceptWithinContext(context, propagatedContext));
+    }
+
+    private @Nullable Object interceptWithinContext(MethodInvocationContext<Object, Object> context, PropagatedContext propagatedContext) {
+        InterceptedMethod interceptedMethod = InterceptedMethod.of(context, ConversionService.SHARED);
+        return switch (interceptedMethod.resultType()) {
+            case PUBLISHER ->
+                // Bypass InterceptedMethod logic for testing
+                captureContext(context.proceed(), propagatedContext);
+            case SYNCHRONOUS, COMPLETION_STAGE -> interceptedMethod.handleResult(
+                interceptedMethod.interceptResult()
+            );
+        };
     }
 
     private <T> T captureContext(T result, PropagatedContext propagatedContext) {

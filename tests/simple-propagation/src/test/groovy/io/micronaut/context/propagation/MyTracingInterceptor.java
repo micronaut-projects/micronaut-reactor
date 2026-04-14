@@ -29,10 +29,9 @@ class MyTracingInterceptor implements MethodInterceptor<Object, Object> {
     public Object intercept(MethodInvocationContext<Object, Object> context) {
         Trace trace = new Trace();
         traces.add(trace);
-        try (PropagatedContext.Scope ignore = PropagatedContext.getOrEmpty()
-            .plus(new TracePropagatedContext(trace))
-            .propagate()) {
-            PropagatedContext propagatedContext = PropagatedContext.get();
+        PropagatedContext propagatedContext = PropagatedContext.getOrEmpty()
+            .plus(new TracePropagatedContext(trace));
+        return propagatedContext.propagate(() -> {
             InterceptedMethod interceptedMethod = InterceptedMethod.of(context, ConversionService.SHARED);
             return switch (interceptedMethod.resultType()) {
                 case PUBLISHER -> captureContext(
@@ -44,7 +43,7 @@ class MyTracingInterceptor implements MethodInterceptor<Object, Object> {
                     interceptedMethod.interceptResult()
                 );
             };
-        }
+        });
     }
 
     private <T> T captureContext(T result, PropagatedContext propagatedContext) {
