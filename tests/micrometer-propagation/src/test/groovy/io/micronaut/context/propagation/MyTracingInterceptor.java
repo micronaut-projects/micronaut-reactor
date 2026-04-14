@@ -31,10 +31,10 @@ class MyTracingInterceptor implements MethodInterceptor<Object, Object> {
         traces.add(trace);
         PropagatedContext propagatedContext = PropagatedContext.getOrEmpty()
             .plus(new TracePropagatedContext(trace));
-        return propagatedContext.propagate(() -> getObject(context, propagatedContext));
+        return propagatedContext.propagate(() -> interceptWithinContext(context, propagatedContext));
     }
 
-    private @Nullable Object getObject(MethodInvocationContext<Object, Object> context, PropagatedContext propagatedContext) {
+    private @Nullable Object interceptWithinContext(MethodInvocationContext<Object, Object> context, PropagatedContext propagatedContext) {
         InterceptedMethod interceptedMethod = InterceptedMethod.of(context, ConversionService.SHARED);
         return switch (interceptedMethod.resultType()) {
             case PUBLISHER ->
