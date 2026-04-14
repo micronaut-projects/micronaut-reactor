@@ -9,7 +9,7 @@ rxjava2 = "2.2.21"
 rxjava3 = "3.1.12"
 
 managed-reactor-bom = "2025.0.5"
-managed-micrometer-context-propagation = "1.2.0"
+managed-micrometer-context-propagation = "1.2.1"
 
 micronaut-gradle-plugin = "4.6.2"
 
