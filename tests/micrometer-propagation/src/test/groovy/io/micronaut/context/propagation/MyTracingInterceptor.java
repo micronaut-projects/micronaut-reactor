@@ -29,12 +29,9 @@ class MyTracingInterceptor implements MethodInterceptor<Object, Object> {
     public Object intercept(MethodInvocationContext<Object, Object> context) {
         Trace trace = new Trace();
         traces.add(trace);
-        try (PropagatedContext.Scope ignore = PropagatedContext.getOrEmpty()
-            .plus(new TracePropagatedContext(trace))
-            .propagate()) {
-            PropagatedContext propagatedContext = PropagatedContext.get();
-            return getObject(context, propagatedContext);
-        }
+        PropagatedContext propagatedContext = PropagatedContext.getOrEmpty()
+            .plus(new TracePropagatedContext(trace));
+        return propagatedContext.propagate(() -> getObject(context, propagatedContext));
     }
 
     private @Nullable Object getObject(MethodInvocationContext<Object, Object> context, PropagatedContext propagatedContext) {
