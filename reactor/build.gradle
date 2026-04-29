@@ -8,7 +8,6 @@ dependencies {
     api libs.reactor.core
 
     compileOnly libs.managed.micrometer.context.propagation
-    compileOnly(libs.rxjava2)
     compileOnly(libs.rxjava3)
     compileOnly(mnTracing.micronaut.tracing.brave.http) {
         exclude group: 'io.micronaut.reactor'
