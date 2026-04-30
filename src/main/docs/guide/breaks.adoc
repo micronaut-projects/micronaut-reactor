@@ -1,3 +1,13 @@
+== 5.0.0
+
+=== RxJava 2 Support Removed
+
+Micronaut Reactor no longer supports RxJava 2.
+The RxJava 2 dependency has been removed and RxJava 3 are supported because Micronaut 5 drops RxJava 2 support.
+
+If your application uses RxJava with this module, update imports from `io.reactivex.*` to `io.reactivex.rxjava3.*`
+and depend on `io.reactivex.rxjava3:rxjava` instead of `io.reactivex.rxjava2:rxjava`.
+
 == 3.0.0
 
 === Reactor Http Client
