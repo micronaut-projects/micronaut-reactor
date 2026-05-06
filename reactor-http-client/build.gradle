@@ -10,7 +10,7 @@ dependencies {
 
     testAnnotationProcessor(mnValidation.micronaut.validation.processor)
     testImplementation(mnValidation.micronaut.validation)
-    testImplementation(libs.rxjava3)
+    testImplementation(mnRxjava3.rxjava3)
     testImplementation(mn.micronaut.http.server.netty)
     testImplementation(mnTracing.micronaut.tracing.brave.http)
     testImplementation(mnSerde.micronaut.serde.jackson)
