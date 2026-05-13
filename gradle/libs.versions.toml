@@ -3,7 +3,7 @@ micronaut = "5.0.0-RC1"
 micronaut-serde = "3.0.0-RC1"
 micronaut-tracing = "8.0.0-M1"
 micronaut-validation = "5.0.0-RC1"
-micronaut-platform = "5.0.0-M3"
+micronaut-platform = "5.0.0-RC1"
 micronaut-rxjava3 = "4.0.0-M1"
 
 managed-reactor-bom = "2025.0.5"
