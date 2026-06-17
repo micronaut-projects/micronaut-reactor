@@ -1,15 +1,15 @@
 [versions]
-micronaut = "5.0.0"
-micronaut-serde = "3.0.0-RC3"
-micronaut-tracing = "8.0.0-RC1"
-micronaut-validation = "5.0.0-RC2"
-micronaut-platform = "5.0.0-RC1"
+micronaut = "5.1.1"
+micronaut-serde = "3.0.0"
+micronaut-tracing = "8.1.0"
+micronaut-validation = "5.0.0"
+micronaut-platform = "5.0.2"
 micronaut-rxjava3 = "4.0.0"
 
 managed-reactor-bom = "2025.0.5"
 managed-micrometer-context-propagation = "1.2.1"
 
-micronaut-gradle-plugin = "5.0.0-M1"
+micronaut-gradle-plugin = "5.0.0"
 
 [libraries]
 # Core
