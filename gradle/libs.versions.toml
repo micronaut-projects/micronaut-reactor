@@ -6,7 +6,7 @@ micronaut-validation = "5.1.0"
 micronaut-platform = "5.1.1"
 micronaut-rxjava3 = "4.1.0"
 
-managed-reactor-bom = "2025.0.6"
+managed-reactor-bom = "2025.0.7"
 managed-micrometer-context-propagation = "1.2.1"
 
 micronaut-gradle-plugin = "5.0.2"
