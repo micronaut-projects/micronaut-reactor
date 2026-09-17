@@ -1,0 +1,12 @@
+plugins {
+    id 'io.micronaut.build.internal.reactor-base'
+}
+
+// Shared setup of the test-suite* projects backing the snippet:: macros of the guide.
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
+
+configurations.configureEach {
+    resolutionStrategy.preferProjectModules()
+}
