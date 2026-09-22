@@ -8,11 +8,4 @@ dependency:micronaut-reactor-http-client[groupId="io.micronaut.reactor"]
 
 To use the Reactor variation of the Micronaut HTTP client inject the api:reactor.http.client.ReactorHttpClient[] interface (or one the other variants). For example:
 
-[source,java]
-----
-import io.micronaut.reactor.http.client.*;
-
-@Inject ReactorHttpClient httpClient; // regular client
-@Inject ReactorSseClient sseClient; // server sent events
-@Inject ReactorStreamingHttpClient streamingClient; // streaming
-----
+snippet::io.micronaut.reactor.docs.HeadlineClient[tags="imports,class"]
