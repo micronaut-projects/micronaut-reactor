@@ -218,6 +218,15 @@ This is semantically more correct as there can only be a single response per req
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"io.micronaut.reactor:micronaut-reactor"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
@@ -238,18 +247,150 @@ This is semantically more correct as there can only be a single response per req
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"io.micronaut.reactor:micronaut-reactor-http-client"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
 <p>To use the Reactor variation of the Micronaut HTTP client inject the <a href="../api/io/micronaut/reactor/http/client/ReactorHttpClient.html">ReactorHttpClient</a> interface (or one the other variants). For example:</p>
 </div>
-<div class="listingblock">
+<div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import io.micronaut.reactor.http.client.*;
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import io.micronaut.http.HttpRequest;
+import io.micronaut.http.sse.Event;
+import io.micronaut.reactor.http.client.ReactorHttpClient;
+import io.micronaut.reactor.http.client.ReactorSseClient;
+import io.micronaut.reactor.http.client.ReactorStreamingHttpClient;
+import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-@Inject ReactorHttpClient httpClient; // regular client
-@Inject ReactorSseClient sseClient; // server sent events
-@Inject ReactorStreamingHttpClient streamingClient; // streaming</code></pre>
+import java.net.URI;
+import java.util.Map;
+
+@Singleton
+public class HeadlineClient {
+
+    @Inject ReactorHttpClient httpClient; // regular client
+    @Inject ReactorSseClient sseClient; // server sent events
+    @Inject ReactorStreamingHttpClient streamingClient; // streaming
+
+    public Mono&lt;String&gt; latest(URI server) {
+        return httpClient.retrieve(HttpRequest.GET(server.resolve("/headlines/latest")));
+    }
+
+    public Flux&lt;String&gt; events(URI server) {
+        return sseClient.eventStream(HttpRequest.GET(server.resolve("/headlines/events")), String.class)
+                .map(Event::getData);
+    }
+
+    public Flux&lt;Map&lt;String, Object&gt;&gt; stream(URI server) {
+        return streamingClient.jsonStream(HttpRequest.GET(server.resolve("/headlines/stream")));
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">from typing import Annotated
+
+from jakarta.inject import Inject, Singleton
+from java.lang import String
+from java.net import URI
+from micronaut.http import HttpRequest
+from micronaut.reactor.http.client import ReactorHttpClient, ReactorSseClient, ReactorStreamingHttpClient
+from reactor.core.publisher import Flux, Mono
+
+@Singleton
+class HeadlineClient:
+
+    http_client: Annotated[ReactorHttpClient, Inject]  # regular client
+    sse_client: Annotated[ReactorSseClient, Inject]  # server sent events
+    streaming_client: Annotated[ReactorStreamingHttpClient, Inject]  # streaming
+
+    def latest(self, server: URI) -&gt; Mono[str]:
+        return self.http_client.retrieve(HttpRequest.GET(server.resolve("/headlines/latest")))
+
+    def events(self, server: URI) -&gt; Flux[str]:
+        return (self.sse_client.eventStream(HttpRequest.GET(server.resolve("/headlines/events")), String)
+                .map(lambda event: event.getData()))
+
+    def stream(self, server: URI) -&gt; Flux[dict[str, object]]:
+        return self.streaming_client.jsonStream(HttpRequest.GET(server.resolve("/headlines/stream")))</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import io.micronaut.http.HttpRequest
+import io.micronaut.http.sse.Event
+import io.micronaut.reactor.http.client.ReactorHttpClient
+import io.micronaut.reactor.http.client.ReactorSseClient
+import io.micronaut.reactor.http.client.ReactorStreamingHttpClient
+import jakarta.inject.Inject
+import jakarta.inject.Singleton
+import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
+import java.net.URI
+
+@Singleton
+class HeadlineClient {
+
+    @Inject lateinit var httpClient: ReactorHttpClient // regular client
+    @Inject lateinit var sseClient: ReactorSseClient // server sent events
+    @Inject lateinit var streamingClient: ReactorStreamingHttpClient // streaming
+
+    fun latest(server: URI): Mono&lt;String&gt; =
+        httpClient.retrieve(HttpRequest.GET&lt;Any&gt;(server.resolve("/headlines/latest")))
+
+    fun events(server: URI): Flux&lt;String&gt; =
+        sseClient.eventStream(HttpRequest.GET&lt;Any&gt;(server.resolve("/headlines/events")), String::class.java)
+            .map { it.data }
+
+    fun stream(server: URI): Flux&lt;Map&lt;String, Any&gt;&gt; =
+        streamingClient.jsonStream(HttpRequest.GET&lt;Any&gt;(server.resolve("/headlines/stream")))
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">import io.micronaut.http.HttpRequest
+import io.micronaut.http.sse.Event
+import io.micronaut.reactor.http.client.ReactorHttpClient
+import io.micronaut.reactor.http.client.ReactorSseClient
+import io.micronaut.reactor.http.client.ReactorStreamingHttpClient
+import jakarta.inject.Inject
+import jakarta.inject.Singleton
+import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
+
+@Singleton
+class HeadlineClient {
+
+    @Inject ReactorHttpClient httpClient // regular client
+    @Inject ReactorSseClient sseClient // server sent events
+    @Inject ReactorStreamingHttpClient streamingClient // streaming
+
+    Mono&lt;String&gt; latest(URI server) {
+        httpClient.retrieve(HttpRequest.GET(server.resolve("/headlines/latest")))
+    }
+
+    Flux&lt;String&gt; events(URI server) {
+        sseClient.eventStream(HttpRequest.GET(server.resolve("/headlines/events")), String)
+                .map(Event::getData)
+    }
+
+    Flux&lt;Map&lt;String, Object&gt;&gt; stream(URI server) {
+        streamingClient.jsonStream(HttpRequest.GET(server.resolve("/headlines/stream")))
+    }
+}</code></pre>
 </div>
 </div>
 
@@ -278,6 +419,15 @@ This is semantically more correct as there can only be a single response per req
     &lt;groupId&gt;io.micrometer&lt;/groupId&gt;
     &lt;artifactId&gt;context-propagation&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"io.micrometer:context-propagation"</span>,
+]</code></pre>
 </div>
 </div>
 </p>
