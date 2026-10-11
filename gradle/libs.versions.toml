@@ -1,9 +1,9 @@
 [versions]
-micronaut = "5.2.13"
+micronaut = "5.2.15"
 micronaut-serde = "3.2.4"
 micronaut-tracing = "8.3.0"
 micronaut-validation = "5.2.1"
-micronaut-platform = "5.2.1"
+micronaut-platform = "5.2.2"
 micronaut-rxjava3 = "4.1.0"
 
 managed-reactor-bom = "2025.0.7"
